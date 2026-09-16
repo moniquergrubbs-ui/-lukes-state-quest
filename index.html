@@ -147,6 +147,13 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
   .navBtn{font-size:10px}
   .navBtn .icon{font-size:21px}
 }
+
+.photoArt{overflow:hidden;position:relative;padding:0!important;background:linear-gradient(145deg,#bad3ee,#eef7ff)!important}
+.photoArt img{width:100%;height:100%;object-fit:cover;display:none}
+.photoArt img.loaded{display:block}
+.photoArt img.loaded+span{display:none}
+.photoArt span{font-size:48px}
+.photoCredit{font-size:10px;color:#718097;text-align:right;margin-top:5px}
 </style>
 </head>
 <body>
@@ -238,23 +245,23 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
             <div class="symEmoji">🐾</div>
             <div class="symLabel"><b>State Animal</b><div id="animalName" class="symName"></div></div>
           </div>
-          <div class="symArt" id="animalArt">🦬</div>
+          <div class="symArt photoArt"><img id="animalPhoto" alt="State animal photo"><span id="animalFallback">🐾</span></div>
         </div>
         <div class="symbol">
           <div class="symText">
             <div class="symEmoji">🌸</div>
             <div class="symLabel"><b>State Flower</b><div id="flowerName" class="symName"></div></div>
           </div>
-          <div class="symArt" id="flowerArt">🌼</div>
+          <div class="symArt photoArt"><img id="flowerPhoto" alt="State flower photo"><span id="flowerFallback">🌸</span></div>
         </div>
         <div class="symbol">
           <div class="symText">
             <div class="symEmoji">🐦</div>
             <div class="symLabel"><b>State Bird</b><div id="birdName" class="symName"></div></div>
           </div>
-          <div class="symArt" id="birdArt">🐦</div>
+          <div class="symArt photoArt"><img id="birdPhoto" alt="State bird photo"><span id="birdFallback">🐦</span></div>
         </div>
-      </div>
+      </div><div class="photoCredit">Symbol photos via Wikimedia Commons / Wikipedia</div>
     </div>
 
     <div id="factBox" class="factBox"></div>
@@ -272,7 +279,7 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
 
   <section id="statesView" class="screen hidden">
     <div class="row"><h1 class="heroTitle">All 50 States</h1><button class="soft goHome">Home</button></div>
-    <p class="muted">States unlock after you see them in a quiz. Tap any viewed state to revisit its capital, map, animal, bird, flower, weird fact, and practice record.</p>
+    <p class="muted">States unlock after you see them in a quiz. Tap any viewed state to reopen its full visual state card, including its map, capital, animal, bird, flower, weird fact, and practice record.</p>
     <div id="statesGrid" class="statesGrid"></div>
   </section>
 
@@ -297,12 +304,12 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
         </div>
       </div>
       <div class="symbols">
-        <div class="symbol"><div class="symText"><div class="symEmoji">🐾</div><div class="symLabel"><b>State Animal</b><div id="infoAnimal" class="symName"></div></div></div><div class="symArt" id="infoAnimalArt">🐾</div></div>
-        <div class="symbol"><div class="symText"><div class="symEmoji">🌸</div><div class="symLabel"><b>State Flower</b><div id="infoFlower" class="symName"></div></div></div><div class="symArt">🌸</div></div>
-        <div class="symbol"><div class="symText"><div class="symEmoji">🐦</div><div class="symLabel"><b>State Bird</b><div id="infoBird" class="symName"></div></div></div><div class="symArt">🐦</div></div>
+        <div class="symbol"><div class="symText"><div class="symEmoji">🐾</div><div class="symLabel"><b>State Animal</b><div id="infoAnimal" class="symName"></div></div></div><div class="symArt photoArt"><img id="infoAnimalPhoto" alt="State animal photo"><span id="infoAnimalFallback">🐾</span></div></div>
+        <div class="symbol"><div class="symText"><div class="symEmoji">🌸</div><div class="symLabel"><b>State Flower</b><div id="infoFlower" class="symName"></div></div></div><div class="symArt photoArt"><img id="infoFlowerPhoto" alt="State flower photo"><span id="infoFlowerFallback">🌸</span></div></div>
+        <div class="symbol"><div class="symText"><div class="symEmoji">🐦</div><div class="symLabel"><b>State Bird</b><div id="infoBird" class="symName"></div></div></div><div class="symArt photoArt"><img id="infoBirdPhoto" alt="State bird photo"><span id="infoBirdFallback">🐦</span></div></div>
       </div>
     </div>
-    <div id="infoFact" class="factBox"></div>
+    <div class="photoCredit">Symbol photos via Wikimedia Commons / Wikipedia</div><div id="infoFact" class="factBox"></div>
     <div class="listCard" style="margin-top:12px">
       <div class="row">
         <div><b>🏛️ Capital</b><div id="infoCapital" style="font-size:24px;font-weight:1000;margin-top:4px"></div></div>
@@ -395,6 +402,50 @@ const BADGES = [
 ];
 
 const $ = id => document.getElementById(id);
+
+const PHOTO_CACHE_KEY='sqPhotoCacheV1';
+let photoCache=JSON.parse(localStorage.getItem(PHOTO_CACHE_KEY)||'{}');
+
+function fallbackFor(kind,name){
+  const n=name.toLowerCase();
+  if(kind==='flower')return'🌸';
+  if(kind==='bird')return'🐦';
+  if(n.includes('bear'))return'🐻';if(n.includes('horse')||n.includes('mule'))return'🐴';
+  if(n.includes('deer'))return'🦌';if(n.includes('bison'))return'🦬';if(n.includes('whale'))return'🐋';
+  if(n.includes('seal'))return'🦭';if(n.includes('panther'))return'🐆';if(n.includes('bat'))return'🦇';
+  if(n.includes('fox'))return'🦊';if(n.includes('squirrel')||n.includes('marmot'))return'🐿️';
+  if(n.includes('beaver'))return'🦫';if(n.includes('elk')||n.includes('moose'))return'🫎';
+  if(n.includes('coyote'))return'🐺';if(n.includes('longhorn'))return'🐂';if(n.includes('badger'))return'🦡';
+  return'🐾';
+}
+async function wikimediaPhoto(term){
+  if(photoCache[term])return photoCache[term];
+  try{
+    // Wikipedia's search + pageimages API gives a high-quality representative image for the exact subject.
+    const u='https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch='+encodeURIComponent(term)+'&gsrlimit=4&prop=pageimages|pageterms&piprop=thumbnail&pithumbsize=500&pilimit=4&format=json&origin=*';
+    const r=await fetch(u);if(!r.ok)throw 0;const j=await r.json();
+    const pages=Object.values(j.query?.pages||{}).filter(p=>p.thumbnail?.source);
+    if(!pages.length)throw 0;
+    const exact=pages.find(p=>p.title.toLowerCase()===term.toLowerCase())||pages[0];
+    photoCache[term]=exact.thumbnail.source;localStorage.setItem(PHOTO_CACHE_KEY,JSON.stringify(photoCache));
+    return photoCache[term];
+  }catch(e){return''}
+}
+async function setPhoto(imgId,fallbackId,term,kind){
+  const img=$(imgId),fb=$(fallbackId);if(!img||!fb)return;
+  img.classList.remove('loaded');img.removeAttribute('src');fb.textContent=fallbackFor(kind,term);
+  const url=await wikimediaPhoto(term);
+  if(!url)return;
+  img.onload=()=>img.classList.add('loaded');
+  img.onerror=()=>img.classList.remove('loaded');
+  img.src=url;
+}
+function loadSymbolPhotos(q,prefix=''){
+  setPhoto(prefix+'animalPhoto',prefix+'animalFallback',q.animal,'animal');
+  setPhoto(prefix+'flowerPhoto',prefix+'flowerFallback',q.flower,'flower');
+  setPhoto(prefix+'birdPhoto',prefix+'birdFallback',q.bird,'bird');
+}
+
 const views = ['profiles','newPlayer','home','quiz','statesView','stateInfoView','statsView','badgesView','familyView','familyResults','results'];
 
 let currentPlayer = localStorage.getItem('sqCurrentPlayer') || '';
@@ -533,9 +584,7 @@ function renderQuestion(){
   $('animalName').textContent = q.animal;
   $('flowerName').textContent = q.flower;
   $('birdName').textContent = q.bird;
-  $('animalArt').textContent = q.animal.includes('bear') ? '🐻' : q.animal.includes('horse') ? '🐴' : q.animal.includes('deer') ? '🦌' : q.animal.includes('bison') ? '🦬' : q.animal.includes('whale') ? '🐋' : q.animal.includes('seal') ? '🦭' : q.animal.includes('panther') ? '🐆' : q.animal.includes('bat') ? '🦇' : q.animal.includes('fox') ? '🦊' : q.animal.includes('squirrel') ? '🐿️' : q.animal.includes('beaver') ? '🦫' : q.animal.includes('mule') ? '🐴' : q.animal.includes('marmot') ? '🐿️' : q.animal.includes('elk') ? '🫎' : '🐾';
-  $('flowerArt').textContent = '🌸';
-  $('birdArt').textContent = q.bird.includes('cardinal') ? '🐦' : q.bird.includes('robin') ? '🐦' : q.bird.includes('gull') ? '🕊️' : q.bird.includes('pelican') ? '🪿' : q.bird.includes('pheasant') ? '🦃' : '🐦';
+  loadSymbolPhotos(q);
   $('factBox').innerHTML = `🤯 <b>Weird (but true!) fact:</b> ${q.fact}`;
   $('questionText').innerHTML = `🏛️ What is the capital of ${q.name}?`;
   $('feedback').classList.add('hidden');
@@ -817,8 +866,9 @@ function showStateInfo(name){
   $('infoStateName').textContent=s.name.toUpperCase();
   $('infoNickname').textContent=s.nickname.toUpperCase();
   $('infoStatus').textContent=z.mastered?'⭐ MASTERED':'📚 VIEWED';
-  $('infoAnimal').textContent=s.animal;$('infoAnimalArt').textContent=animalEmoji(s.animal);
+  $('infoAnimal').textContent=s.animal;
   $('infoFlower').textContent=s.flower;$('infoBird').textContent=s.bird;
+  loadSymbolPhotos(s,'info');
   $('infoFact').innerHTML=`🤯 <b>Weird (but true!) fact:</b> ${s.fact}`;
   $('infoCapital').textContent=s.capital;
   $('infoRecord').textContent=`${z.correct} correct • ${z.misses} missed`;
