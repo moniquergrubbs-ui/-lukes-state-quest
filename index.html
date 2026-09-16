@@ -154,6 +154,27 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
 .photoArt img.loaded+span{display:none}
 .photoArt span{font-size:48px}
 .photoCredit{font-size:10px;color:#718097;text-align:right;margin-top:5px}
+
+.quizGrid{grid-template-columns:minmax(0,1.28fr) minmax(300px,.82fr)!important;align-items:stretch}
+.mapCard{min-height:455px!important;padding:0!important;background:#e8ece8!important}
+.mapInner{height:435px!important;border-radius:20px!important;overflow:hidden;background:radial-gradient(circle at 30% 35%,rgba(84,130,72,.25),transparent 22%),radial-gradient(circle at 66% 42%,rgba(149,116,67,.22),transparent 24%),linear-gradient(135deg,#dbe2d2,#eee9dd 58%,#d8e2d0)!important}
+.mapTexture{opacity:.22!important;background:repeating-radial-gradient(ellipse at 35% 55%,transparent 0 12px,rgba(49,84,51,.22) 13px 14px,transparent 15px 27px),linear-gradient(90deg,rgba(74,95,116,.18) 1px,transparent 1px),linear-gradient(rgba(74,95,116,.14) 1px,transparent 1px)!important;background-size:auto,120px 100%,100% 105px!important}
+.neighborBorder{fill:rgba(239,241,235,.76);stroke:#8d9aa5;stroke-width:1.1;vector-effect:non-scaling-stroke}
+.neighborLabel{font-size:11px;letter-spacing:1.4px;font-weight:800;fill:#40536b;paint-order:stroke;stroke:#f4f5f0;stroke-width:3px;stroke-linejoin:round}
+.stateBorder{fill:url(#terrainFill)!important;stroke:white!important;stroke-width:5!important;filter:drop-shadow(0 4px 3px rgba(0,0,0,.22))}
+.capitalStar{fill:#ffc51d!important;stroke:#071b4f!important;stroke-width:1.7!important}
+.compassWrap{position:absolute;left:18px;bottom:16px;z-index:4;width:68px;height:68px;color:#102b55}
+.scaleWrap{position:absolute;right:18px;bottom:18px;z-index:4;font-size:10px;font-weight:800;color:#243c58;text-align:center}
+.scaleLine{height:8px;border-left:2px solid #243c58;border-right:2px solid #243c58;border-bottom:2px solid #243c58;width:94px;margin-top:2px}
+.mapHint{left:auto!important;right:16px!important;top:14px!important;bottom:auto!important;z-index:5!important}
+.symbols{grid-template-rows:repeat(3,1fr)!important}
+.symbol{grid-template-columns:minmax(0,1fr) minmax(132px,42%)!important;min-height:136px!important;padding:10px!important;overflow:hidden}
+.symText{text-align:left!important}
+.symArt{height:116px!important;border-radius:16px!important}
+.photoArt img{object-fit:cover!important;background:#dfeaf3}
+.photoArt{background:linear-gradient(145deg,#d7e6f4,#eef7ff)!important}
+@media(max-width:860px){.quizGrid{grid-template-columns:1fr!important}.mapCard{min-height:390px!important}.mapInner{height:370px!important}.symbols{grid-template-columns:repeat(3,1fr)!important;grid-template-rows:1fr!important}.symbol{grid-template-columns:1fr!important;min-height:245px!important;text-align:center}.symText{justify-content:center!important;text-align:center!important}.symArt{height:145px!important;width:100%}}
+@media(max-width:620px){.mapCard{min-height:345px!important}.mapInner{height:325px!important}.symbols{display:grid!important;grid-template-columns:1fr!important;grid-template-rows:none!important}.symbol{grid-template-columns:minmax(0,1fr) minmax(145px,46%)!important;min-height:154px!important;text-align:left!important}.symText{justify-content:flex-start!important;text-align:left!important}.symArt{height:132px!important}.compassWrap{width:58px;height:58px;left:12px;bottom:12px}.scaleWrap{right:12px;bottom:13px}.scaleLine{width:76px}}
 </style>
 </head>
 <body>
@@ -234,7 +255,7 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
             <svg id="stateMap" viewBox="0 0 360 250" aria-label="State outline with capital location">
               <g id="mapLayer"></g>
             </svg>
-            <div class="mapHint">★ marks the capital location</div>
+            <div class="mapHint">★ marks the capital location</div><div class="compassWrap"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="25" fill="rgba(255,255,255,.72)" stroke="currentColor" stroke-width="2"/><path d="M40 7 L47 33 L73 40 L47 47 L40 73 L33 47 L7 40 L33 33 Z" fill="white" stroke="currentColor" stroke-width="2"/><path d="M40 12 L44 36 L40 32 L36 36 Z" fill="currentColor"/><text x="40" y="10" text-anchor="middle" font-size="10" font-weight="900" fill="currentColor">N</text><text x="40" y="79" text-anchor="middle" font-size="9" fill="currentColor">S</text><text x="2" y="43" font-size="9" fill="currentColor">W</text><text x="73" y="43" font-size="9" fill="currentColor">E</text></svg></div><div class="scaleWrap"><span>MAP SCALE</span><div class="scaleLine"></div></div>
           </div>
         </div>
       </div>
@@ -299,7 +320,7 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
           <div class="mapTexture"></div>
           <div class="mapInner">
             <svg id="infoStateMap" viewBox="0 0 360 250" aria-label="State outline with capital location"><g id="infoMapLayer"></g></svg>
-            <div class="mapHint">★ capital location</div>
+            <div class="mapHint">★ capital location</div><div class="compassWrap"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="25" fill="rgba(255,255,255,.72)" stroke="currentColor" stroke-width="2"/><path d="M40 7 L47 33 L73 40 L47 47 L40 73 L33 47 L7 40 L33 33 Z" fill="white" stroke="currentColor" stroke-width="2"/><path d="M40 12 L44 36 L40 32 L36 36 Z" fill="currentColor"/><text x="40" y="10" text-anchor="middle" font-size="10" font-weight="900" fill="currentColor">N</text><text x="40" y="79" text-anchor="middle" font-size="9" fill="currentColor">S</text><text x="2" y="43" font-size="9" fill="currentColor">W</text><text x="73" y="43" font-size="9" fill="currentColor">E</text></svg></div><div class="scaleWrap"><span>MAP SCALE</span><div class="scaleLine"></div></div>
           </div>
         </div>
       </div>
@@ -384,6 +405,7 @@ linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,
 <script>
 const STATES = [{"name":"Alabama","capital":"Montgomery","lat":32.3777,"lon":-86.3006,"bird":"Yellowhammer","flower":"Camellia","animal":"Black bear","nickname":"The Yellowhammer State","fact":"Alabama has an official state nut: the pecan."},{"name":"Alaska","capital":"Juneau","lat":58.3019,"lon":-134.4197,"bird":"Willow ptarmigan","flower":"Forget-me-not","animal":"Moose","nickname":"The Last Frontier","fact":"Alaska has more coastline than all the other U.S. states combined."},{"name":"Arizona","capital":"Phoenix","lat":33.4484,"lon":-112.074,"bird":"Cactus wren","flower":"Saguaro cactus blossom","animal":"Ringtail","nickname":"The Grand Canyon State","fact":"Most of Arizona does not observe daylight saving time."},{"name":"Arkansas","capital":"Little Rock","lat":34.7465,"lon":-92.2896,"bird":"Northern mockingbird","flower":"Apple blossom","animal":"White-tailed deer","nickname":"The Natural State","fact":"At Crater of Diamonds State Park, visitors can keep diamonds they find."},{"name":"California","capital":"Sacramento","lat":38.5816,"lon":-121.4944,"bird":"California quail","flower":"California poppy","animal":"California grizzly bear","nickname":"The Golden State","fact":"California's state animal is a grizzly bear even though wild grizzlies no longer live there."},{"name":"Colorado","capital":"Denver","lat":39.7392,"lon":-104.9903,"bird":"Lark bunting","flower":"Rocky Mountain columbine","animal":"Rocky Mountain bighorn sheep","nickname":"The Centennial State","fact":"Colorado has the highest average elevation of any U.S. state."},{"name":"Connecticut","capital":"Hartford","lat":41.7658,"lon":-72.6734,"bird":"American robin","flower":"Mountain laurel","animal":"Sperm whale","nickname":"The Constitution State","fact":"Connecticut's state insect is the praying mantis."},{"name":"Delaware","capital":"Dover","lat":39.1582,"lon":-75.5244,"bird":"Delaware Blue Hen","flower":"Peach blossom","animal":"Gray fox","nickname":"The First State","fact":"Delaware was the first state to ratify the U.S. Constitution."},{"name":"Florida","capital":"Tallahassee","lat":30.4383,"lon":-84.2807,"bird":"Northern mockingbird","flower":"Orange blossom","animal":"Florida panther","nickname":"The Sunshine State","fact":"South Florida is the only place where American alligators and American crocodiles naturally share habitat."},{"name":"Georgia","capital":"Atlanta","lat":33.749,"lon":-84.388,"bird":"Brown thrasher","flower":"Cherokee rose","animal":"White-tailed deer","nickname":"The Peach State","fact":"Georgia has a town named Santa Claus."},{"name":"Hawaii","capital":"Honolulu","lat":21.3099,"lon":-157.8581,"bird":"Nēnē","flower":"Yellow hibiscus","animal":"Hawaiian hoary bat","nickname":"The Aloha State","fact":"Hawaii is the only U.S. state made entirely of islands."},{"name":"Idaho","capital":"Boise","lat":43.615,"lon":-116.2023,"bird":"Mountain bluebird","flower":"Syringa","animal":"Appaloosa horse","nickname":"The Gem State","fact":"Idaho is famous for potatoes, but its nickname is the Gem State."},{"name":"Illinois","capital":"Springfield","lat":39.7817,"lon":-89.6501,"bird":"Northern cardinal","flower":"Violet","animal":"White-tailed deer","nickname":"The Prairie State","fact":"Chicago is Illinois's biggest city, but Springfield is the capital."},{"name":"Indiana","capital":"Indianapolis","lat":39.7684,"lon":-86.1581,"bird":"Northern cardinal","flower":"Peony","animal":"White-tailed deer","nickname":"The Hoosier State","fact":"The Indianapolis 500 is about 200 laps around its famous oval."},{"name":"Iowa","capital":"Des Moines","lat":41.5868,"lon":-93.625,"bird":"Eastern goldfinch","flower":"Wild rose","animal":"White-tailed deer","nickname":"The Hawkeye State","fact":"Iowa has more pigs than people."},{"name":"Kansas","capital":"Topeka","lat":39.0473,"lon":-95.6752,"bird":"Western meadowlark","flower":"Wild sunflower","animal":"American bison","nickname":"The Sunflower State","fact":"Kansas's official state song is Home on the Range."},{"name":"Kentucky","capital":"Frankfort","lat":38.2009,"lon":-84.8777,"bird":"Northern cardinal","flower":"Goldenrod","animal":"Gray squirrel","nickname":"The Bluegrass State","fact":"Kentucky has more barrels of aging bourbon than people."},{"name":"Louisiana","capital":"Baton Rouge","lat":30.4515,"lon":-91.1871,"bird":"Brown pelican","flower":"Magnolia","animal":"Louisiana black bear","nickname":"The Pelican State","fact":"Louisiana uses parishes instead of counties."},{"name":"Maine","capital":"Augusta","lat":44.3106,"lon":-69.7795,"bird":"Black-capped chickadee","flower":"White pine cone and tassel","animal":"Moose","nickname":"The Pine Tree State","fact":"Maine is the only U.S. state with a one-syllable name."},{"name":"Maryland","capital":"Annapolis","lat":38.9784,"lon":-76.4922,"bird":"Baltimore oriole","flower":"Black-eyed Susan","animal":"Chesapeake Bay retriever","nickname":"The Old Line State","fact":"Maryland's official state sport is jousting."},{"name":"Massachusetts","capital":"Boston","lat":42.3601,"lon":-71.0589,"bird":"Black-capped chickadee","flower":"Mayflower","animal":"Right whale","nickname":"The Bay State","fact":"In 1919, a giant molasses tank burst and sent a wave of molasses through part of Boston."},{"name":"Michigan","capital":"Lansing","lat":42.7325,"lon":-84.5555,"bird":"American robin","flower":"Apple blossom","animal":"White-tailed deer","nickname":"The Great Lakes State","fact":"Michigan touches four of the five Great Lakes."},{"name":"Minnesota","capital":"Saint Paul","lat":44.9537,"lon":-93.09,"bird":"Common loon","flower":"Pink and white lady's slipper","animal":"White-tailed deer","nickname":"The North Star State","fact":"Minnesota is called the Land of 10,000 Lakes, but it actually has more than 10,000."},{"name":"Mississippi","capital":"Jackson","lat":32.2988,"lon":-90.1848,"bird":"Northern mockingbird","flower":"Magnolia","animal":"White-tailed deer","nickname":"The Magnolia State","fact":"The teddy bear's name is linked to a Theodore Roosevelt hunting trip in Mississippi."},{"name":"Missouri","capital":"Jefferson City","lat":38.5767,"lon":-92.1735,"bird":"Eastern bluebird","flower":"Hawthorn blossom","animal":"Missouri mule","nickname":"The Show-Me State","fact":"The Gateway Arch in St. Louis is taller than the Washington Monument."},{"name":"Montana","capital":"Helena","lat":46.5891,"lon":-112.0391,"bird":"Western meadowlark","flower":"Bitterroot","animal":"Grizzly bear","nickname":"The Treasure State","fact":"Montana has more cattle than people."},{"name":"Nebraska","capital":"Lincoln","lat":40.8136,"lon":-96.7026,"bird":"Western meadowlark","flower":"Goldenrod","animal":"White-tailed deer","nickname":"The Cornhusker State","fact":"Nebraska is the only state with a one-house state legislature."},{"name":"Nevada","capital":"Carson City","lat":39.1638,"lon":-119.7674,"bird":"Mountain bluebird","flower":"Sagebrush","animal":"Desert bighorn sheep","nickname":"The Silver State","fact":"Nevada is the driest U.S. state."},{"name":"New Hampshire","capital":"Concord","lat":43.2081,"lon":-71.5376,"bird":"Purple finch","flower":"Purple lilac","animal":"White-tailed deer","nickname":"The Granite State","fact":"New Hampshire has the shortest ocean coastline of any U.S. coastal state."},{"name":"New Jersey","capital":"Trenton","lat":40.2206,"lon":-74.7699,"bird":"Eastern goldfinch","flower":"Violet","animal":"Horse","nickname":"The Garden State","fact":"New Jersey is famous for having more diners than any other state."},{"name":"New Mexico","capital":"Santa Fe","lat":35.687,"lon":-105.9378,"bird":"Greater roadrunner","flower":"Yucca flower","animal":"American black bear","nickname":"The Land of Enchantment","fact":"Santa Fe is the oldest state capital in the United States."},{"name":"New York","capital":"Albany","lat":42.6526,"lon":-73.7562,"bird":"Eastern bluebird","flower":"Rose","animal":"Beaver","nickname":"The Empire State","fact":"New York City is the state's biggest city, but Albany is the capital. Sneaky!"},{"name":"North Carolina","capital":"Raleigh","lat":35.7796,"lon":-78.6382,"bird":"Northern cardinal","flower":"Flowering dogwood","animal":"Gray squirrel","nickname":"The Tar Heel State","fact":"The Wright brothers' first powered airplane flight happened at Kitty Hawk."},{"name":"North Dakota","capital":"Bismarck","lat":46.8083,"lon":-100.7837,"bird":"Western meadowlark","flower":"Wild prairie rose","animal":"Nokota horse","nickname":"The Peace Garden State","fact":"North Dakota has a town named Rugby that is promoted as the geographic center of North America."},{"name":"Ohio","capital":"Columbus","lat":39.9612,"lon":-82.9988,"bird":"Northern cardinal","flower":"Scarlet carnation","animal":"White-tailed deer","nickname":"The Buckeye State","fact":"Ohio's state flag is the only U.S. state flag that is not rectangular."},{"name":"Oklahoma","capital":"Oklahoma City","lat":35.4676,"lon":-97.5164,"bird":"Scissor-tailed flycatcher","flower":"Oklahoma rose","animal":"American bison","nickname":"The Sooner State","fact":"Oklahoma has an official state meal made up of 13 different foods."},{"name":"Oregon","capital":"Salem","lat":44.9429,"lon":-123.0351,"bird":"Western meadowlark","flower":"Oregon grape","animal":"American beaver","nickname":"The Beaver State","fact":"Oregon's state flag has different designs on the front and back."},{"name":"Pennsylvania","capital":"Harrisburg","lat":40.2732,"lon":-76.8867,"bird":"Ruffed grouse","flower":"Mountain laurel","animal":"White-tailed deer","nickname":"The Keystone State","fact":"The first successful U.S. zoo opened in Philadelphia in 1874."},{"name":"Rhode Island","capital":"Providence","lat":41.824,"lon":-71.4128,"bird":"Rhode Island Red","flower":"Violet","animal":"Harbor seal","nickname":"The Ocean State","fact":"Rhode Island is the smallest U.S. state by area."},{"name":"South Carolina","capital":"Columbia","lat":34.0007,"lon":-81.0348,"bird":"Carolina wren","flower":"Yellow jessamine","animal":"White-tailed deer","nickname":"The Palmetto State","fact":"South Carolina's official state dance is the shag."},{"name":"South Dakota","capital":"Pierre","lat":44.3683,"lon":-100.351,"bird":"Ring-necked pheasant","flower":"American pasque flower","animal":"Coyote","nickname":"The Mount Rushmore State","fact":"South Dakota's capital, Pierre, is pronounced peer."},{"name":"Tennessee","capital":"Nashville","lat":36.1627,"lon":-86.7816,"bird":"Northern mockingbird","flower":"Iris","animal":"Raccoon","nickname":"The Volunteer State","fact":"Tennessee borders eight states, tied for the most of any state."},{"name":"Texas","capital":"Austin","lat":30.2672,"lon":-97.7431,"bird":"Northern mockingbird","flower":"Bluebonnet","animal":"Texas longhorn","nickname":"The Lone Star State","fact":"El Paso is closer to California than it is to some parts of eastern Texas."},{"name":"Utah","capital":"Salt Lake City","lat":40.7608,"lon":-111.891,"bird":"California gull","flower":"Sego lily","animal":"Rocky Mountain elk","nickname":"The Beehive State","fact":"Utah's state insect is the honeybee, and its nickname is the Beehive State."},{"name":"Vermont","capital":"Montpelier","lat":44.2601,"lon":-72.5754,"bird":"Hermit thrush","flower":"Red clover","animal":"Morgan horse","nickname":"The Green Mountain State","fact":"Montpelier is the least-populous U.S. state capital."},{"name":"Virginia","capital":"Richmond","lat":37.5407,"lon":-77.436,"bird":"Northern cardinal","flower":"American dogwood","animal":"Virginia big-eared bat","nickname":"The Old Dominion","fact":"Virginia has produced eight U.S. presidents, more than any other state."},{"name":"Washington","capital":"Olympia","lat":47.0379,"lon":-122.9007,"bird":"Willow goldfinch","flower":"Coast rhododendron","animal":"Olympic marmot","nickname":"The Evergreen State","fact":"Washington is the only state named after a U.S. president."},{"name":"West Virginia","capital":"Charleston","lat":38.3498,"lon":-81.6326,"bird":"Northern cardinal","flower":"Rhododendron","animal":"Black bear","nickname":"The Mountain State","fact":"West Virginia became a state during the Civil War."},{"name":"Wisconsin","capital":"Madison","lat":43.0731,"lon":-89.4012,"bird":"American robin","flower":"Wood violet","animal":"Badger","nickname":"The Badger State","fact":"Wisconsin's official state dairy product is cheese."},{"name":"Wyoming","capital":"Cheyenne","lat":41.14,"lon":-104.8202,"bird":"Western meadowlark","flower":"Indian paintbrush","animal":"American bison","nickname":"The Equality State","fact":"Wyoming was the first U.S. state to give women the right to vote."}];
 const STATE_NAMES = STATES.map(s=>s.name);
+const NEIGHBORS={"Alabama":["Florida","Georgia","Mississippi","Tennessee"],"Alaska":[],"Arizona":["California","Colorado","Nevada","New Mexico","Utah"],"Arkansas":["Louisiana","Mississippi","Missouri","Oklahoma","Tennessee","Texas"],"California":["Arizona","Nevada","Oregon"],"Colorado":["Arizona","Kansas","Nebraska","New Mexico","Oklahoma","Utah","Wyoming"],"Connecticut":["Massachusetts","New York","Rhode Island"],"Delaware":["Maryland","New Jersey","Pennsylvania"],"Florida":["Alabama","Georgia"],"Georgia":["Alabama","Florida","North Carolina","South Carolina","Tennessee"],"Hawaii":[],"Idaho":["Montana","Nevada","Oregon","Utah","Washington","Wyoming"],"Illinois":["Indiana","Iowa","Kentucky","Missouri","Wisconsin"],"Indiana":["Illinois","Kentucky","Michigan","Ohio"],"Iowa":["Illinois","Minnesota","Missouri","Nebraska","South Dakota","Wisconsin"],"Kansas":["Colorado","Missouri","Nebraska","Oklahoma"],"Kentucky":["Illinois","Indiana","Missouri","Ohio","Tennessee","Virginia","West Virginia"],"Louisiana":["Arkansas","Mississippi","Texas"],"Maine":["New Hampshire"],"Maryland":["Delaware","Pennsylvania","Virginia","West Virginia"],"Massachusetts":["Connecticut","New Hampshire","New York","Rhode Island","Vermont"],"Michigan":["Indiana","Ohio","Wisconsin"],"Minnesota":["Iowa","North Dakota","South Dakota","Wisconsin"],"Mississippi":["Alabama","Arkansas","Louisiana","Tennessee"],"Missouri":["Arkansas","Illinois","Iowa","Kansas","Kentucky","Nebraska","Oklahoma","Tennessee"],"Montana":["Idaho","North Dakota","South Dakota","Wyoming"],"Nebraska":["Colorado","Iowa","Kansas","Missouri","South Dakota","Wyoming"],"Nevada":["Arizona","California","Idaho","Oregon","Utah"],"New Hampshire":["Maine","Massachusetts","Vermont"],"New Jersey":["Delaware","New York","Pennsylvania"],"New Mexico":["Arizona","Colorado","Oklahoma","Texas","Utah"],"New York":["Connecticut","Massachusetts","New Jersey","Pennsylvania","Vermont"],"North Carolina":["Georgia","South Carolina","Tennessee","Virginia"],"North Dakota":["Minnesota","Montana","South Dakota"],"Ohio":["Indiana","Kentucky","Michigan","Pennsylvania","West Virginia"],"Oklahoma":["Arkansas","Colorado","Kansas","Missouri","New Mexico","Texas"],"Oregon":["California","Idaho","Nevada","Washington"],"Pennsylvania":["Delaware","Maryland","New Jersey","New York","Ohio","West Virginia"],"Rhode Island":["Connecticut","Massachusetts"],"South Carolina":["Georgia","North Carolina"],"South Dakota":["Iowa","Minnesota","Montana","Nebraska","North Dakota","Wyoming"],"Tennessee":["Alabama","Arkansas","Georgia","Kentucky","Mississippi","Missouri","North Carolina","Virginia"],"Texas":["Arkansas","Louisiana","New Mexico","Oklahoma"],"Utah":["Arizona","Colorado","Idaho","Nevada","New Mexico","Wyoming"],"Vermont":["Massachusetts","New Hampshire","New York"],"Virginia":["Kentucky","Maryland","North Carolina","Tennessee","West Virginia"],"Washington":["Idaho","Oregon"],"West Virginia":["Kentucky","Maryland","Ohio","Pennsylvania","Virginia"],"Wisconsin":["Illinois","Iowa","Michigan","Minnesota"],"Wyoming":["Colorado","Idaho","Montana","Nebraska","South Dakota","Utah"]};
 const DEFAULT_AVATARS = ['🧢','👩','🧔','🦊','🐻','🐯','⚾','🚀','🌈'];
 const DEFAULT_PROFILES = [
   {name:'Luke',avatar:'🧢'},
@@ -431,12 +453,13 @@ async function wikimediaPhoto(term){
     return photoCache[term];
   }catch(e){return''}
 }
+function applyPhotoFocal(img,kind){img.style.objectFit='cover';img.style.objectPosition=kind==='bird'?'50% 38%':kind==='animal'?'50% 45%':'50% 50%'}
 async function setPhoto(imgId,fallbackId,term,kind){
   const img=$(imgId),fb=$(fallbackId);if(!img||!fb)return;
   img.classList.remove('loaded');img.removeAttribute('src');fb.textContent=fallbackFor(kind,term);
   const url=await wikimediaPhoto(term);
   if(!url)return;
-  img.onload=()=>img.classList.add('loaded');
+  img.onload=()=>{applyPhotoFocal(img,kind);img.classList.add('loaded')};
   img.onerror=()=>img.classList.remove('loaded');
   img.src=url;
 }
@@ -795,91 +818,13 @@ async function loadGeo(){
 }
 
 function ringsOf(g){ return g.type==='Polygon' ? g.coordinates : g.coordinates.flat(); }
-async function drawState(info){
-  const layer = $('mapLayer');
-  layer.innerHTML = `<text x="180" y="120" text-anchor="middle" fill="#5d6f86">Loading state map…</text>`;
-  const geo = await loadGeo();
-  const f = geo.features.find(x => x.properties.name === info.name);
-  layer.innerHTML = '';
-  if(!f) return;
-  const rings = ringsOf(f.geometry), pts = rings.flat();
-  const minX = Math.min(...pts.map(p=>p[0])), maxX = Math.max(...pts.map(p=>p[0]));
-  const minY = Math.min(...pts.map(p=>p[1])), maxY = Math.max(...pts.map(p=>p[1]));
-  const pad = 18, W=360, H=250;
-  const scale = Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY));
-  const ox = (W - (maxX-minX)*scale)/2, oy = (H - (maxY-minY)*scale)/2;
-  const xy = p => [ox + (p[0]-minX)*scale, H - (oy + (p[1]-minY)*scale)];
-  rings.forEach(r => {
-    const d = r.map((p,idx) => {
-      const q = xy(p);
-      return `${idx?'L':'M'}${q[0].toFixed(1)} ${q[1].toFixed(1)}`;
-    }).join(' ') + ' Z';
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d', d);
-    path.setAttribute('class', 'stateBorder');
-    layer.appendChild(path);
-  });
-  const pt = xy([info.lon, info.lat]);
-  const star = document.createElementNS('http://www.w3.org/2000/svg','text');
-  star.setAttribute('x', pt[0]);
-  star.setAttribute('y', pt[1] + 7);
-  star.setAttribute('text-anchor', 'middle');
-  star.setAttribute('font-size', '26');
-  star.setAttribute('class', 'capitalStar');
-  star.textContent = '★';
-  layer.appendChild(star);
-}
 
-
-function animalEmoji(name){
-  const n=name.toLowerCase();
-  if(n.includes('bear'))return'🐻'; if(n.includes('horse')||n.includes('mule'))return'🐴';
-  if(n.includes('deer'))return'🦌'; if(n.includes('bison'))return'🦬'; if(n.includes('whale'))return'🐋';
-  if(n.includes('seal'))return'🦭'; if(n.includes('panther'))return'🐆'; if(n.includes('bat'))return'🦇';
-  if(n.includes('fox'))return'🦊'; if(n.includes('squirrel')||n.includes('marmot'))return'🐿️';
-  if(n.includes('beaver'))return'🦫'; if(n.includes('elk')||n.includes('moose'))return'🫎';
-  if(n.includes('coyote'))return'🐺'; if(n.includes('longhorn'))return'🐂'; if(n.includes('badger'))return'🦡';
-  return'🐾';
-}
-async function drawStateInto(info, layerId){
-  const layer=$(layerId);
-  layer.innerHTML='<text x="180" y="120" text-anchor="middle" fill="#5d6f86">Loading state map…</text>';
-  const geo=await loadGeo();
-  const f=geo.features.find(x=>x.properties.name===info.name);
-  layer.innerHTML='';
-  if(!f)return;
-  const rings=ringsOf(f.geometry),pts=rings.flat(),pad=18,W=360,H=250;
-  const minX=Math.min(...pts.map(p=>p[0])),maxX=Math.max(...pts.map(p=>p[0])),minY=Math.min(...pts.map(p=>p[1])),maxY=Math.max(...pts.map(p=>p[1]));
-  const scale=Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY));
-  const ox=(W-(maxX-minX)*scale)/2,oy=(H-(maxY-minY)*scale)/2;
-  const xy=p=>[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)];
-  rings.forEach(r=>{
-    const d=r.map((p,idx)=>{const q=xy(p);return `${idx?'L':'M'}${q[0].toFixed(1)} ${q[1].toFixed(1)}`}).join(' ')+' Z';
-    const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('class','stateBorder');layer.appendChild(path);
-  });
-  const pt=xy([info.lon,info.lat]),star=document.createElementNS('http://www.w3.org/2000/svg','text');
-  star.setAttribute('x',pt[0]);star.setAttribute('y',pt[1]+7);star.setAttribute('text-anchor','middle');star.setAttribute('font-size','26');star.setAttribute('class','capitalStar');star.textContent='★';layer.appendChild(star);
-}
-function showStateInfo(name){
-  const s=STATES.find(x=>x.name===name),z=st(data,name);
-  if(!(z.viewed||z.attempts>0))return;
-  $('infoStateName').textContent=s.name.toUpperCase();
-  $('infoNickname').textContent=s.nickname.toUpperCase();
-  $('infoStatus').textContent=z.mastered?'⭐ MASTERED':'📚 VIEWED';
-  $('infoAnimal').textContent=s.animal;
-  $('infoFlower').textContent=s.flower;$('infoBird').textContent=s.bird;
-  loadSymbolPhotos(s,'info');
-  $('infoFact').innerHTML=`🤯 <b>Weird (but true!) fact:</b> ${s.fact}`;
-  $('infoCapital').textContent=s.capital;
-  $('infoRecord').textContent=`${z.correct} correct • ${z.misses} missed`;
-  $('practiceThisState').onclick=()=>startSingleStatePractice(s);
-  drawStateInto(s,'infoMapLayer');
-  show('stateInfoView');
-}
-function startSingleStatePractice(s){
-  familyMode=false;round=[s];i=0;score=0;selected=null;newMasteredThisRound=[];
-  renderQuestion();show('quiz');
-}
+function featureBounds(f){const rings=ringsOf(f.geometry),pts=rings.flat();return{minX:Math.min(...pts.map(p=>p[0])),maxX:Math.max(...pts.map(p=>p[0])),minY:Math.min(...pts.map(p=>p[1])),maxY:Math.max(...pts.map(p=>p[1]))}}
+function featureCenter(f){const b=featureBounds(f);return[(b.minX+b.maxX)/2,(b.minY+b.maxY)/2]}
+function addTerrainDefs(svg){if(svg.querySelector('defs'))return;const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');defs.innerHTML='<linearGradient id="terrainFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5e9c55"/><stop offset="35%" stop-color="#8bb96a"/><stop offset="68%" stop-color="#9e9a63"/><stop offset="100%" stop-color="#6d8f55"/></linearGradient>';svg.prepend(defs)}
+async function drawContextMap(info,layerId){const layer=$(layerId),svg=layer.closest('svg');addTerrainDefs(svg);layer.innerHTML='<text x="180" y="125" text-anchor="middle" fill="#5d6f86">Loading geography…</text>';const geo=await loadGeo(),sel=geo.features.find(x=>x.properties.name===info.name);if(!sel)return;const names=NEIGHBORS[info.name]||[],near=geo.features.filter(x=>names.includes(x.properties.name)),all=[sel,...near],bs=all.map(featureBounds);let minX=Math.min(...bs.map(b=>b.minX)),maxX=Math.max(...bs.map(b=>b.maxX)),minY=Math.min(...bs.map(b=>b.minY)),maxY=Math.max(...bs.map(b=>b.maxY));const dx=maxX-minX||1,dy=maxY-minY||1;minX-=dx*.10;maxX+=dx*.10;minY-=dy*.12;maxY+=dy*.12;const W=360,H=250,pad=8,scale=Math.min((W-2*pad)/(maxX-minX),(H-2*pad)/(maxY-minY)),ox=(W-(maxX-minX)*scale)/2,oy=(H-(maxY-minY)*scale)/2,xy=p=>[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)];layer.innerHTML='';function pathFeature(f,cls){ringsOf(f.geometry).forEach(r=>{const d=r.map((p,j)=>{const q=xy(p);return(j?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z';const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('class',cls);layer.appendChild(path)})}near.forEach(f=>pathFeature(f,'neighborBorder'));near.forEach(f=>{const c=xy(featureCenter(f)),t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',c[0]);t.setAttribute('y',c[1]);t.setAttribute('text-anchor','middle');t.setAttribute('class','neighborLabel');t.textContent=f.properties.name.toUpperCase();layer.appendChild(t)});pathFeature(sel,'stateBorder');const pt=xy([info.lon,info.lat]),star=document.createElementNS('http://www.w3.org/2000/svg','text');star.setAttribute('x',pt[0]);star.setAttribute('y',pt[1]+7);star.setAttribute('text-anchor','middle');star.setAttribute('font-size','27');star.setAttribute('class','capitalStar');star.textContent='★';layer.appendChild(star)}
+async function drawState(info){return drawContextMap(info,'mapLayer')}
+async function drawStateInto(info,layerId){return drawContextMap(info,layerId)}
 
 function startFamily(){
   familyMode = true;
