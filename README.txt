@@ -1,12 +1,23 @@
-LUKE'S STATE QUEST — EXPLORER EDITION 12.2
+LUKE'S STATE QUEST V12.3
 
-Visual audit update:
-• Removed map methodology/generalized-border captions from the visible game.
-• Removed visible photo-credit overlays. Source metadata remains available to the app.
-• Changed species photos to object-fit: contain so the full subject is favored over cropping.
-• Removed the technical About Explorer Edition block from Settings.
-• Removed species-note clutter from the state card.
-• Renamed the fact card to Mind-Blower.
-• Preserved all 12.1 learning, map, photo-target, profile, challenge, mastery, stats and badge behavior.
+Identity + map polish:
+• Proper browser/app title: Luke’s State Quest
+• New 192px, 512px and Apple touch icons
+• Dedicated 1200×630 iMessage/social share card
+• Open Graph and Twitter/social metadata
+• Manifest name/description corrected
+• New service-worker cache
+• Hawaii and Alaska receive special non-contiguous-state framing hooks
+• V12.2 visual cleanup and prior fact/image corrections are preserved
 
-Upload all matching files to the GitHub repository root.
+IMPORTANT:
+The Open Graph image currently points to:
+https://moniquegrubbs-ui.github.io/lukes-state-quest/share-card.png
+
+If your GitHub Pages site is published at the ACCOUNT ROOT instead of /lukes-state-quest/,
+change the two share-card metadata URLs in index.html to:
+https://moniquegrubbs-ui.github.io/share-card.png
+
+Upload ALL files in this folder to the same directory as index.html.
+iMessage may cache an old link preview for a while. Sending the URL with a harmless query
+such as ?v=12.3 can force a fresh preview during testing.

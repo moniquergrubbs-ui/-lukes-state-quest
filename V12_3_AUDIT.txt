@@ -1,0 +1,8 @@
+executable JS syntax: PASS
+page title: PASS
+share metadata: PASS
+Apple home icon: PASS
+manifest: PASS
+share card: PASS
+special Hawaii/Alaska framing hooks: PASS
+V12.2 cleanup preserved: PASS
