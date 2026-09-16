@@ -1,83 +1,922 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><meta name='theme-color' content='#254b8b'><meta name='apple-mobile-web-app-capable' content='yes'><meta name='apple-mobile-web-app-title' content='State Quest'><link rel='manifest' href='manifest.webmanifest'><link rel='apple-touch-icon' href='icon-192.png'><title>State Quest</title><style>body{font-family:system-ui,-apple-system,sans-serif;background:#f5f7fb;color:#162033;margin:0;padding:24px}.app{max-width:850px;margin:auto}.card{background:white;border:1px solid #dce2ea;border-radius:24px;padding:28px}.center{text-align:center}button{font:inherit;border:0;border-radius:16px;padding:16px;cursor:pointer}.primary{background:#254b8b;color:white;font-weight:800;width:100%;font-size:20px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{background:#eef2f7;text-align:left;font-weight:700}.hidden{display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.stat{background:#eef2f7;border-radius:16px;padding:14px}.big{font-size:38px;font-weight:900}.muted{color:#667085}.fact{background:#eef2f7;border-radius:16px;padding:14px;margin:14px 0}.bar{height:10px;background:#e5e7eb;border-radius:9px;overflow:hidden}.fill{height:100%;background:#254b8b}.badge{display:inline-block;background:#eef2f7;border-radius:999px;padding:8px 12px;margin:4px}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}@media(max-width:600px){.answers{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}body{padding:12px}.card{padding:20px}}
-.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.secondary{background:#eef2f7;color:#162033;font-weight:800;width:100%}.levelbar{height:12px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin-top:12px}.levelfill{height:100%;background:#d5a62d}.collection{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}.tile{border:1px solid #dce2ea;border-radius:14px;padding:9px 5px;min-height:68px;display:flex;flex-direction:column;justify-content:center;font-size:12px}.tile.mastered{background:#edf8f0;border-color:#9ecbab}.tile.learning{background:#fff8e8;border-color:#e4cf98}.tile.unseen{background:#f3f5f7;color:#8a93a3}.badgegrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.badgecard{border:1px solid #dce2ea;border-radius:16px;padding:14px;text-align:left}.locked{opacity:.38}.boss{background:#251f3f;color:white}.boss .muted{color:#d8d3e6}.boss .fact,.boss .stat{background:#383054;color:white}.boss h1,.boss h2{color:white}.shape{height:175px;display:grid;place-items:center;background:#eef2f7;border-radius:18px;margin:12px 0}.shape svg{width:92%;height:155px}.shape path{fill:#9fb6d0;stroke:#162033;stroke-width:4}.animalPop{font-size:64px;margin:6px}.celebrate{font-size:70px;animation:pop .45s ease}@keyframes pop{50%{transform:scale(1.12)}}@media(prefers-reduced-motion:reduce){.celebrate{animation:none}}@media(max-width:600px){.nav{grid-template-columns:1fr}.collection{grid-template-columns:repeat(3,1fr)}.badgegrid{grid-template-columns:1fr}}
-.profilegrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.profilecard{border:1px solid #dce2ea;border-radius:18px;padding:15px;background:#fff}.avatarbig{font-size:38px}input{width:100%;min-height:52px;border:2px solid #dce2ea;border-radius:14px;padding:12px;font-size:17px}.secondary{border:0;border-radius:16px;padding:14px;background:#eef2f7;color:#162033;font-weight:800}.avatarpick{font-size:28px;min-width:54px}.familyboard{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.familycard{background:#eef2f7;border-radius:16px;padding:14px}@media(max-width:600px){.profilegrid,.familyboard{grid-template-columns:1fr}}.symbolgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.symbol{background:#eef4fb;border-radius:15px;padding:11px;text-align:left}.symbol span{font-size:24px}.shape{min-height:245px}.shape svg{height:225px}.stateBorder{fill:#aac2dc;stroke:#14213d;stroke-width:2;vector-effect:non-scaling-stroke}.capitalStar{fill:#f5b51b;stroke:#14213d;stroke-width:1.4;vector-effect:non-scaling-stroke}.capitalText{font-size:13px;font-weight:900;fill:#14213d;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}@media(max-width:600px){.symbolgrid{grid-template-columns:1fr}.shape{min-height:220px}.shape svg{height:200px}}
-body{background:linear-gradient(#d8efff 0 150px,#edf3f7 150px);color:#071b4f}
-.app{max-width:1000px}.card{border-radius:28px;box-shadow:0 8px 28px #18385812}
-body:before{content:'🏔️';position:fixed;top:8px;left:5%;font-size:90px;opacity:.14;z-index:-1}
-#home:before,#profiles:before{content:"LUKE'S STATE QUEST";display:block;font-size:clamp(28px,6vw,48px);font-weight:1000;letter-spacing:-1px;margin-bottom:3px}
-#home:after,#profiles:after{content:'50 STATES · BIGGER MINDS.';display:block;letter-spacing:4px;font-size:11px;margin-bottom:18px}
-.shape{background:#e8eef1;border-radius:20px;min-height:330px}.shape svg{height:310px}
-.stateBorder{fill:#8db878!important;stroke:white!important;stroke-width:5!important;filter:drop-shadow(0 3px 2px #0003)}
-.capitalText{display:none}.capitalStar{fill:#ffc21c!important;stroke:#071b4f!important}
-#state{text-align:center;font-size:clamp(42px,8vw,68px);margin:8px 0 0;letter-spacing:-2px}
-.symbolgrid{grid-template-columns:repeat(3,1fr)!important}.symbol{background:linear-gradient(90deg,#f7fbff,#e8f3ff)!important;border:1px solid #cadff3;padding:15px!important}
-.fact{background:linear-gradient(90deg,#eaf5ff,#f8fbff)!important;border:1px solid #c9dff4!important;font-size:18px}
-.answers{grid-template-columns:1fr 1fr!important}.answer{background:linear-gradient(#f8fbff,#eaf3fb)!important;border:1px solid #cbdced!important;text-align:center!important;font-size:20px!important;color:#071b4f}
-.primary{background:linear-gradient(#2789f4,#0666d7)!important;border-radius:22px!important}
-.nav{grid-template-columns:repeat(4,1fr)!important}.secondary{border-radius:17px!important}
-.explore50{margin-top:16px;border:1px solid #cbdff2;border-radius:17px;padding:12px;display:flex;gap:8px;overflow-x:auto;align-items:center}.stateChip{min-width:76px;background:#eef6fd;border-radius:14px;padding:8px;text-align:center;font-size:11px}.stateChip b{font-size:20px}
-.bottomBar{display:grid;grid-template-columns:repeat(6,1fr);background:white;border-radius:24px;margin-top:12px;padding:8px;position:sticky;bottom:3px}.bottomBar button{background:white;font-size:11px;padding:6px}.bottomBar span{display:block;font-size:24px}
-@media(max-width:600px){.shape{min-height:250px}.shape svg{height:230px}.symbolgrid{grid-template-columns:repeat(3,1fr)!important}.symbol{font-size:12px;padding:9px!important}.answers{grid-template-columns:1fr 1fr!important}.bottomBar button{font-size:9px}.bottomBar span{font-size:20px}}
-</style></head><body><div class='app'>
-<section id='profiles' class='card center'><div style='font-size:60px'>🇺🇸</div><h1>Who's Playing?</h1><p class='muted'>Each player gets separate progress on this device.</p><div id='profileGrid' class='profilegrid'></div><button id='addPlayer' class='secondary' style='width:100%;margin-top:12px'>＋ ADD PLAYER</button></section>
-<section id='newPlayer' class='card hidden'><h1>Add Player</h1><input id='playerName' maxlength='18' placeholder='Name or nickname'><div id='avatarRow' style='display:flex;gap:8px;flex-wrap:wrap;margin:14px 0'></div><button id='createPlayer' class='primary'>CREATE PLAYER</button><button id='cancelPlayer' class='secondary' style='width:100%;margin-top:8px'>CANCEL</button></section><section id='home' class='card center hidden'><div id='who' class='badge'></div><button id='switchPlayer' class='secondary' style='margin-bottom:10px'>SWITCH PLAYER</button><div style='font-size:60px'>🇺🇸</div><h1>Luke's State Quest</h1><p class='muted'>10 states a day. Master all 50.</p><div class='stats'><div class='stat'><div id='streak' class='big'>0</div><small>🔥 Day Streak</small></div><div class='stat'><div id='mastered' class='big'>0</div><small>🗺️ / 50 Mastered</small></div><div class='stat'><div id='totalPoints' class='big'>0</div><small>⭐ Points Earned</small></div></div><div class='levelbar'><div id='levelFill' class='levelfill' style='width:0%'></div></div><div id='levelName' class='muted' style='margin:7px 0 14px;font-weight:800'>State Explorer</div><button id='start' class='primary'>START TODAY'S 10</button><div class='nav'><button id='mapBtn' class='secondary'>🗺️ MY 50 STATES</button><button id='badgesBtn' class='secondary'>🏅 BADGES & STATS</button><button id='bossBtn' class='secondary'>👾 BOSS BATTLE</button><button id='familyBtn' class='secondary'>🏆 FAMILY CHALLENGE</button></div><div style='margin-top:18px'><span class='badge'>🏅 Badges <b id='badgeCount'>0</b></span><span class='badge'>🏆 Perfect Rounds <b id='perfectCount'>0</b></span></div></section>
-<section id='quiz' class='card hidden'><div class='row'><b id='progress'>1 / 10</b><b id='liveScore'>0 correct</b></div><div class='bar' style='margin:12px 0 22px'><div id='fill' class='fill' style='width:10%'></div></div><div id='rematch' class='badge hidden'>⚔️ REMATCH</div><div id='shape' class='shape'><svg id='stateMap' viewBox='0 0 360 230' aria-label='Actual state border with capital location'><g id='mapLayer'></g></svg></div><h1 id='state'></h1><div id='nickname' style='text-align:center;letter-spacing:5px;font-size:12px;margin-bottom:12px'></div><div class='symbolgrid'><div class='symbol'><span>🐾</span><b> State Animal</b><div id='animal'></div></div><div class='symbol'><span>🐦</span><b> State Bird</b><div id='bird'></div></div><div class='symbol'><span>🌸</span><b> State Flower</b><div id='flower'></div></div></div><div id='fact' class='fact'></div><h2>What is the capital?</h2><div id='answers' class='answers'></div><div id='feedback' class='fact hidden'></div><div class='explore50'><b>🗺️ Explore All 50</b><div id='quickStates' style='display:flex;gap:8px'></div></div><button id='next' class='primary hidden' style='margin-top:14px'>NEXT STATE →</button></section>
-<section id='family' class='card center hidden'><h1>🏆 Family Challenge</h1><p class='muted'>Everyone gets the same 10 states. Competition rounds do not change mastery or chore points.</p><div id='familyPlayers' class='familyboard'></div><button id='startFamily' class='primary' style='margin-top:14px'>START FAMILY CHALLENGE</button><button id='familyBack' class='secondary' style='width:100%;margin-top:8px'>BACK HOME</button></section><section id='collection' class='card center hidden'><h1>🗺️ My 50 States</h1><p class='muted'>Gray = unseen • Gold = learning • Green = mastered</p><div id='collectionGrid' class='collection'></div><button id='collectionBack' class='primary' style='margin-top:18px'>BACK HOME</button></section>
-<section id='badges' class='card hidden'><div class='center'><h1>🏅 Badges & Stats</h1><p class='muted'>Every badge is earned by actually learning.</p></div><div id='badgeGrid' class='badgegrid'></div><button id='badgesBack' class='primary' style='margin-top:18px'>BACK HOME</button></section>
-<section id='familyResults' class='card center hidden'><div style='font-size:60px'>🏆</div><h1>Family Challenge Results</h1><div id='familyResultsList'></div><button id='familyDone' class='primary' style='margin-top:14px'>BACK HOME</button></section><section id='results' class='card center hidden'><div id='trophy' class='celebrate'>🏆</div><h1 id='resultTitle'>Quest Complete!</h1><p id='resultText'></p><div class='stat' style='max-width:300px;margin:20px auto'><small>CHORE POINTS EARNED</small><div id='earned' class='big'>0</div></div><div id='newMastery'></div><button id='done' class='primary'>BACK HOME</button></section>
-</div><div class='bottomBar'><button onclick="home()"><span>🏠</span>Home</button><button onclick="showCollection()"><span>🗺️</span>All States</button><button onclick="document.getElementById('familyBtn').click()"><span>🏆</span>Challenges</button><button onclick="showBadges()"><span>📊</span>Stats</button><button onclick="showBadges()"><span>⭐</span>Badges</button><button onclick="profileScreen()"><span>⚙️</span>Settings</button></div><script>
-const STATES=[{"name":"Alabama","capital":"Montgomery","lat":32.3777,"lon":-86.3006,"bird":"Yellowhammer","flower":"Camellia","animal":"Black bear","fact":"Alabama has an official state nut: the pecan.","nickname":"THE YELLOWHAMMER STATE"},{"name":"Alaska","capital":"Juneau","lat":58.3019,"lon":-134.4197,"bird":"Willow ptarmigan","flower":"Forget-me-not","animal":"Moose","fact":"Alaska has more coastline than all the other U.S. states combined.","nickname":"THE LAST FRONTIER STATE"},{"name":"Arizona","capital":"Phoenix","lat":33.4484,"lon":-112.074,"bird":"Cactus wren","flower":"Saguaro cactus blossom","animal":"Ringtail","fact":"Most of Arizona does not observe daylight saving time.","nickname":"THE GRAND CANYON STATE"},{"name":"Arkansas","capital":"Little Rock","lat":34.7465,"lon":-92.2896,"bird":"Northern mockingbird","flower":"Apple blossom","animal":"White-tailed deer","fact":"At Crater of Diamonds State Park, visitors can keep diamonds they find.","nickname":"THE NATURAL STATE"},{"name":"California","capital":"Sacramento","lat":38.5816,"lon":-121.4944,"bird":"California quail","flower":"California poppy","animal":"California grizzly bear","fact":"California's state animal is a grizzly bear even though wild grizzlies no longer live there.","nickname":"THE GOLDEN STATE"},{"name":"Colorado","capital":"Denver","lat":39.7392,"lon":-104.9903,"bird":"Lark bunting","flower":"Rocky Mountain columbine","animal":"Rocky Mountain bighorn sheep","fact":"Colorado has the highest average elevation of any U.S. state.","nickname":"THE CENTENNIAL STATE"},{"name":"Connecticut","capital":"Hartford","lat":41.7658,"lon":-72.6734,"bird":"American robin","flower":"Mountain laurel","animal":"Sperm whale","fact":"Connecticut's state insect is the praying mantis.","nickname":"THE CONSTITUTION STATE"},{"name":"Delaware","capital":"Dover","lat":39.1582,"lon":-75.5244,"bird":"Delaware Blue Hen","flower":"Peach blossom","animal":"Gray fox","fact":"Delaware was the first state to ratify the U.S. Constitution.","nickname":"THE FIRST STATE"},{"name":"Florida","capital":"Tallahassee","lat":30.4383,"lon":-84.2807,"bird":"Northern mockingbird","flower":"Orange blossom","animal":"Florida panther","fact":"South Florida is the only place where American alligators and American crocodiles naturally share habitat.","nickname":"THE SUNSHINE STATE"},{"name":"Georgia","capital":"Atlanta","lat":33.749,"lon":-84.388,"bird":"Brown thrasher","flower":"Cherokee rose","animal":"White-tailed deer","fact":"Georgia has a town named Santa Claus.","nickname":"THE PEACH STATE"},{"name":"Hawaii","capital":"Honolulu","lat":21.3099,"lon":-157.8581,"bird":"Nēnē","flower":"Yellow hibiscus","animal":"Hawaiian hoary bat","fact":"Hawaii is the only U.S. state made entirely of islands.","nickname":"THE ALOHA STATE"},{"name":"Idaho","capital":"Boise","lat":43.615,"lon":-116.2023,"bird":"Mountain bluebird","flower":"Syringa","animal":"Appaloosa horse","fact":"Idaho is famous for potatoes, but its nickname is the Gem State.","nickname":"THE GEM STATE"},{"name":"Illinois","capital":"Springfield","lat":39.7817,"lon":-89.6501,"bird":"Northern cardinal","flower":"Violet","animal":"White-tailed deer","fact":"Chicago is Illinois's biggest city, but Springfield is the capital.","nickname":"THE PRAIRIE STATE"},{"name":"Indiana","capital":"Indianapolis","lat":39.7684,"lon":-86.1581,"bird":"Northern cardinal","flower":"Peony","animal":"White-tailed deer","fact":"The Indianapolis 500 is about 200 laps around its famous oval.","nickname":"THE HOOSIER STATE"},{"name":"Iowa","capital":"Des Moines","lat":41.5868,"lon":-93.625,"bird":"Eastern goldfinch","flower":"Wild rose","animal":"White-tailed deer","fact":"Iowa has more pigs than people.","nickname":"THE HAWKEYE STATE"},{"name":"Kansas","capital":"Topeka","lat":39.0473,"lon":-95.6752,"bird":"Western meadowlark","flower":"Wild sunflower","animal":"American bison","fact":"Kansas's official state song is Home on the Range.","nickname":"THE SUNFLOWER STATE"},{"name":"Kentucky","capital":"Frankfort","lat":38.2009,"lon":-84.8777,"bird":"Northern cardinal","flower":"Goldenrod","animal":"Gray squirrel","fact":"Kentucky has more barrels of aging bourbon than people.","nickname":"THE BLUEGRASS STATE"},{"name":"Louisiana","capital":"Baton Rouge","lat":30.4515,"lon":-91.1871,"bird":"Brown pelican","flower":"Magnolia","animal":"Louisiana black bear","fact":"Louisiana uses parishes instead of counties.","nickname":"THE PELICAN STATE"},{"name":"Maine","capital":"Augusta","lat":44.3106,"lon":-69.7795,"bird":"Black-capped chickadee","flower":"White pine cone and tassel","animal":"Moose","fact":"Maine is the only U.S. state with a one-syllable name.","nickname":"THE PINE TREE STATE"},{"name":"Maryland","capital":"Annapolis","lat":38.9784,"lon":-76.4922,"bird":"Baltimore oriole","flower":"Black-eyed Susan","animal":"Chesapeake Bay retriever","fact":"Maryland's official state sport is jousting.","nickname":"THE OLD LINE STATE"},{"name":"Massachusetts","capital":"Boston","lat":42.3601,"lon":-71.0589,"bird":"Black-capped chickadee","flower":"Mayflower","animal":"Right whale","fact":"In 1919, a giant molasses tank burst and sent a wave of molasses through part of Boston.","nickname":"THE BAY STATE"},{"name":"Michigan","capital":"Lansing","lat":42.7325,"lon":-84.5555,"bird":"American robin","flower":"Apple blossom","animal":"White-tailed deer","fact":"Michigan touches four of the five Great Lakes.","nickname":"THE GREAT LAKES STATE"},{"name":"Minnesota","capital":"Saint Paul","lat":44.9537,"lon":-93.09,"bird":"Common loon","flower":"Pink and white lady's slipper","animal":"White-tailed deer","fact":"Minnesota is called the Land of 10,000 Lakes, but it actually has more than 10,000.","nickname":"THE NORTH STAR STATE"},{"name":"Mississippi","capital":"Jackson","lat":32.2988,"lon":-90.1848,"bird":"Northern mockingbird","flower":"Magnolia","animal":"White-tailed deer","fact":"The teddy bear's name is linked to a Theodore Roosevelt hunting trip in Mississippi.","nickname":"THE MAGNOLIA STATE"},{"name":"Missouri","capital":"Jefferson City","lat":38.5767,"lon":-92.1735,"bird":"Eastern bluebird","flower":"Hawthorn blossom","animal":"Missouri mule","fact":"The Gateway Arch in St. Louis is taller than the Washington Monument.","nickname":"THE SHOW-ME STATE"},{"name":"Montana","capital":"Helena","lat":46.5891,"lon":-112.0391,"bird":"Western meadowlark","flower":"Bitterroot","animal":"Grizzly bear","fact":"Montana has more cattle than people.","nickname":"THE TREASURE STATE"},{"name":"Nebraska","capital":"Lincoln","lat":40.8136,"lon":-96.7026,"bird":"Western meadowlark","flower":"Goldenrod","animal":"White-tailed deer","fact":"Nebraska is the only state with a one-house state legislature.","nickname":"THE CORNHUSKER STATE"},{"name":"Nevada","capital":"Carson City","lat":39.1638,"lon":-119.7674,"bird":"Mountain bluebird","flower":"Sagebrush","animal":"Desert bighorn sheep","fact":"Nevada is the driest U.S. state.","nickname":"THE SILVER STATE"},{"name":"New Hampshire","capital":"Concord","lat":43.2081,"lon":-71.5376,"bird":"Purple finch","flower":"Purple lilac","animal":"White-tailed deer","fact":"New Hampshire has the shortest ocean coastline of any U.S. coastal state.","nickname":"THE GRANITE STATE"},{"name":"New Jersey","capital":"Trenton","lat":40.2206,"lon":-74.7699,"bird":"Eastern goldfinch","flower":"Violet","animal":"Horse","fact":"New Jersey is famous for having more diners than any other state.","nickname":"THE GARDEN STATE"},{"name":"New Mexico","capital":"Santa Fe","lat":35.687,"lon":-105.9378,"bird":"Greater roadrunner","flower":"Yucca flower","animal":"American black bear","fact":"Santa Fe is the oldest state capital in the United States.","nickname":"THE LAND OF ENCHANTMENT STATE"},{"name":"New York","capital":"Albany","lat":42.6526,"lon":-73.7562,"bird":"Eastern bluebird","flower":"Rose","animal":"Beaver","fact":"New York City is the state's biggest city, but Albany is the capital. Sneaky!","nickname":"THE EMPIRE STATE"},{"name":"North Carolina","capital":"Raleigh","lat":35.7796,"lon":-78.6382,"bird":"Northern cardinal","flower":"Flowering dogwood","animal":"Gray squirrel","fact":"The Wright brothers' first powered airplane flight happened at Kitty Hawk.","nickname":"THE TAR HEEL STATE"},{"name":"North Dakota","capital":"Bismarck","lat":46.8083,"lon":-100.7837,"bird":"Western meadowlark","flower":"Wild prairie rose","animal":"Nokota horse","fact":"North Dakota has a town named Rugby that is promoted as the geographic center of North America.","nickname":"THE PEACE GARDEN STATE"},{"name":"Ohio","capital":"Columbus","lat":39.9612,"lon":-82.9988,"bird":"Northern cardinal","flower":"Scarlet carnation","animal":"White-tailed deer","fact":"Ohio's state flag is the only U.S. state flag that is not rectangular.","nickname":"THE BUCKEYE STATE"},{"name":"Oklahoma","capital":"Oklahoma City","lat":35.4676,"lon":-97.5164,"bird":"Scissor-tailed flycatcher","flower":"Oklahoma rose","animal":"American bison","fact":"Oklahoma has an official state meal made up of 13 different foods.","nickname":"THE SOONER STATE"},{"name":"Oregon","capital":"Salem","lat":44.9429,"lon":-123.0351,"bird":"Western meadowlark","flower":"Oregon grape","animal":"American beaver","fact":"Oregon's state flag has different designs on the front and back.","nickname":"THE BEAVER STATE"},{"name":"Pennsylvania","capital":"Harrisburg","lat":40.2732,"lon":-76.8867,"bird":"Ruffed grouse","flower":"Mountain laurel","animal":"White-tailed deer","fact":"The first successful U.S. zoo opened in Philadelphia in 1874.","nickname":"THE KEYSTONE STATE"},{"name":"Rhode Island","capital":"Providence","lat":41.824,"lon":-71.4128,"bird":"Rhode Island Red","flower":"Violet","animal":"Harbor seal","fact":"Rhode Island is the smallest U.S. state by area.","nickname":"THE OCEAN STATE"},{"name":"South Carolina","capital":"Columbia","lat":34.0007,"lon":-81.0348,"bird":"Carolina wren","flower":"Yellow jessamine","animal":"White-tailed deer","fact":"South Carolina's official state dance is the shag.","nickname":"THE PALMETTO STATE"},{"name":"South Dakota","capital":"Pierre","lat":44.3683,"lon":-100.351,"bird":"Ring-necked pheasant","flower":"American pasque flower","animal":"Coyote","fact":"South Dakota's capital, Pierre, is pronounced peer.","nickname":"THE MOUNT RUSHMORE STATE"},{"name":"Tennessee","capital":"Nashville","lat":36.1627,"lon":-86.7816,"bird":"Northern mockingbird","flower":"Iris","animal":"Raccoon","fact":"Tennessee borders eight states, tied for the most of any state.","nickname":"THE VOLUNTEER STATE"},{"name":"Texas","capital":"Austin","lat":30.2672,"lon":-97.7431,"bird":"Northern mockingbird","flower":"Bluebonnet","animal":"Texas longhorn","fact":"El Paso is closer to California than it is to some parts of eastern Texas.","nickname":"THE LONE STAR STATE"},{"name":"Utah","capital":"Salt Lake City","lat":40.7608,"lon":-111.891,"bird":"California gull","flower":"Sego lily","animal":"Rocky Mountain elk","fact":"Utah's state insect is the honeybee, and its nickname is the Beehive State.","nickname":"THE BEEHIVE STATE"},{"name":"Vermont","capital":"Montpelier","lat":44.2601,"lon":-72.5754,"bird":"Hermit thrush","flower":"Red clover","animal":"Morgan horse","fact":"Montpelier is the least-populous U.S. state capital.","nickname":"THE GREEN MOUNTAIN STATE"},{"name":"Virginia","capital":"Richmond","lat":37.5407,"lon":-77.436,"bird":"Northern cardinal","flower":"American dogwood","animal":"Virginia big-eared bat","fact":"Virginia has produced eight U.S. presidents, more than any other state.","nickname":"THE OLD DOMINION STATE"},{"name":"Washington","capital":"Olympia","lat":47.0379,"lon":-122.9007,"bird":"Willow goldfinch","flower":"Coast rhododendron","animal":"Olympic marmot","fact":"Washington is the only state named after a U.S. president.","nickname":"THE EVERGREEN STATE"},{"name":"West Virginia","capital":"Charleston","lat":38.3498,"lon":-81.6326,"bird":"Northern cardinal","flower":"Rhododendron","animal":"Black bear","fact":"West Virginia became a state during the Civil War.","nickname":"THE MOUNTAIN STATE"},{"name":"Wisconsin","capital":"Madison","lat":43.0731,"lon":-89.4012,"bird":"American robin","flower":"Wood violet","animal":"Badger","fact":"Wisconsin's official state dairy product is cheese.","nickname":"THE BADGER STATE"},{"name":"Wyoming","capital":"Cheyenne","lat":41.14,"lon":-104.8202,"bird":"Western meadowlark","flower":"Indian paintbrush","animal":"American bison","fact":"Wyoming was the first U.S. state to give women the right to vote.","nickname":"THE EQUALITY STATE"}];
-const S=STATES.map(x=>[x.name,x.capital,'🐾',x.animal]);
-let currentPlayer=localStorage.getItem('sqCurrentPlayer')||'';let data=JSON.parse(localStorage.getItem('sq_'+currentPlayer)||'{"states":{},"points":0,"perfect":0,"streak":0,"lastDay":"","badges":[],"rounds":0,"bossWins":0,"best":0}');data.rounds=data.rounds||0;data.bossWins=data.bossWins||0;data.best=data.best||0;function save(){localStorage.setItem('sq_'+currentPlayer,JSON.stringify(data))}function d(s){return data.states[s]||(data.states[s]={attempts:0,correct:0,misses:0,streak:0,mastered:false,last:0})}function shuffle(a){return [...a].sort(()=>Math.random()-.5)}function weighted(){let pool=[];S.forEach(x=>{let z=d(x[0]),w=z.attempts===0?7:z.mastered?1:3+z.misses*4;for(let i=0;i<Math.min(w,12);i++)pool.push(x)});let out=[];while(out.length<10&&pool.length){let x=pool[Math.floor(Math.random()*pool.length)];if(!out.includes(x))out.push(x)}return out}let familyMode=false,familyRoster=[],familyPos=0,familyScores=[];let round=[],i=0,score=0,locked=false,newM=[];const $=x=>document.querySelector(x);function updateHome(){let m=S.filter(x=>d(x[0]).mastered).length;$('#streak').textContent=data.streak;$('#mastered').textContent=m;$('#totalPoints').textContent=data.points;$('#perfectCount').textContent=data.perfect;$('#badgeCount').textContent=data.badges.length;let lv=Math.min(6,1+Math.floor(m/10)),names=['','State Explorer','Capital Scout','Geography Ranger','Capital Crusher','State Expert','Master of the 50'];$('#levelName').textContent='Level '+lv+' • '+names[lv];$('#levelFill').style.width=((m%10)*10)+'%'}function start(){let today=new Date().toISOString().slice(0,10);if(data.lastDay!==today){let y=new Date();y.setDate(y.getDate()-1);data.streak=data.lastDay===y.toISOString().slice(0,10)?data.streak+1:1;data.lastDay=today;save()}round=weighted();i=score=0;newM=[];$('#home').classList.add('hidden');$('#results').classList.add('hidden');$('#quiz').classList.remove('hidden');render()}function render(){locked=false;let s=round[i],z=d(s[0]);$('#progress').textContent=`${i+1} / 10`;$('#liveScore').textContent=`${score} correct`;$('#fill').style.width=`${(i+1)*10}%`;$('#state').textContent=s[0].toUpperCase();let info=STATES.find(x=>x.name===s[0]);$('#nickname').textContent=info.nickname;$('#animal').textContent=info.animal;$('#bird').textContent=info.bird;$('#flower').textContent=info.flower;$('#fact').innerHTML=`🤯 <b>Weird (but true!) fact:</b> ${info.fact}`;drawState(info);let qs=$('#quickStates');if(qs){qs.innerHTML='';STATES.slice(0,6).forEach(x=>{let d=document.createElement('div');d.className='stateChip';d.innerHTML='<b>'+x.name.slice(0,2).toUpperCase()+'</b><br>'+x.name;qs.appendChild(d)})}$('#rematch').classList.toggle('hidden',familyMode||z.misses===0);$('#feedback').classList.add('hidden');$('#next').classList.add('hidden');let opts=shuffle([s[1],...shuffle(S.filter(x=>x[1]!==s[1])).slice(0,3).map(x=>x[1])]);$('#answers').innerHTML='';opts.forEach(c=>{let b=document.createElement('button');b.className='answer';b.textContent=c;b.onclick=()=>answer(c);$('#answers').appendChild(b)})}function answer(c){if(familyMode)return familyAnswer(c);if(locked)return;locked=true;let s=round[i],z=d(s[0]),ok=c===s[1];z.attempts++;z.last=Date.now();if(ok){score++;z.correct++;z.streak++;if(z.streak>=3&&!z.mastered){z.mastered=true;newM.push(s[0])}}else{z.misses++;z.streak=0;z.mastered=false}save();[...$('#answers').children].forEach(b=>b.disabled=true);$('#feedback').innerHTML=ok?`🎉 <b>YES!</b> ${s[1]} is the capital of ${s[0]}.`:`⚔️ <b>REMEMBER THIS ONE:</b> ${s[1]} is the capital of ${s[0]}. You'll see ${s[0]} more often until you've got it.`;$('#feedback').classList.remove('hidden');$('#liveScore').textContent=`${score} correct`;$('#next').textContent=i===9?'SEE MY POINTS 🏆':'NEXT STATE →';$('#next').classList.remove('hidden')}function finish(){let pts=score===10?10:score>=8?8:score>=6?5:3;data.points+=pts;data.rounds++;data.best=Math.max(data.best,score);if(data.streak>=3&&!data.badges.includes('Hot Streak'))data.badges.push('Hot Streak');if(S.filter(x=>d(x[0]).mastered).length>=10&&!data.badges.includes('10-State Club'))data.badges.push('10-State Club');if(score===10){data.perfect++;if(!data.badges.includes('Perfect Round'))data.badges.push('Perfect Round')}if(newM.length&& !data.badges.includes('State Master'))data.badges.push('State Master');save();$('#quiz').classList.add('hidden');$('#results').classList.remove('hidden');$('#trophy').textContent=score===10?'🏆':score>=8?'🌟':'💪';$('#resultTitle').textContent=score===10?'PERFECT ROUND!':'QUEST COMPLETE!';$('#resultText').textContent=`You got ${score} out of 10 capitals.`;$('#earned').textContent=pts;$('#newMastery').innerHTML=newM.length?`<div class='fact'>🗺️ <b>NEWLY MASTERED:</b> ${newM.join(', ')}</div>`:''}$('#start').onclick=start;$('#next').onclick=()=>{if(i<9){i++;render()}else if(familyMode)familyFinishTurn();else finish()};$('#done').onclick=()=>{$('#results').classList.add('hidden');$('#home').classList.remove('hidden');updateHome()};
-function showCollection(){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#collection').classList.remove('hidden');let g=$('#collectionGrid');g.innerHTML='';S.forEach(x=>{let z=d(x[0]),t=document.createElement('div');t.className='tile '+(z.mastered?'mastered':z.attempts?'learning':'unseen');t.innerHTML=`<b>${z.mastered?'⭐':z.attempts?'📚':'🔒'} ${x[0]}</b><span>${z.mastered?x[1]:z.attempts?z.correct+' right • '+z.misses+' missed':'Not seen yet'}</span>`;g.appendChild(t)})}
-const badgeDefs=[['🏆','Perfect Round',()=>data.perfect>0],['🔥','Hot Streak',()=>data.streak>=3],['🗺️','10-State Club',()=>S.filter(x=>d(x[0]).mastered).length>=10],['💪','Comeback Kid',()=>S.some(x=>d(x[0]).misses>0&&d(x[0]).streak>=2)],['🧠','Capital Crusher',()=>S.filter(x=>d(x[0]).mastered).length>=25],['🇺🇸','Master of the 50',()=>S.every(x=>d(x[0]).mastered)],['⚔️','Boss Beater',()=>data.bossWins>0],['⭐','Century Club',()=>data.points>=100]];
-function showBadges(){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#badges').classList.remove('hidden');let g=$('#badgeGrid');g.innerHTML='';badgeDefs.forEach(b=>{let earned=b[2](),e=document.createElement('div');e.className='badgecard '+(earned?'':'locked');e.innerHTML=`<div style="font-size:30px">${b[0]}</div><b>${b[1]}</b><div class="muted">${earned?'UNLOCKED':'Locked'}</div>`;g.appendChild(e)})}
-function home(){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#home').classList.remove('hidden');updateHome()}
-function boss(){if(data.rounds<5){alert('Boss Battles unlock after 5 daily quests!');return}round=weighted();i=score=0;newM=[];document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#quiz').classList.remove('hidden');$('#quiz').classList.add('boss');render()}
-$('#mapBtn').onclick=showCollection;$('#badgesBtn').onclick=showBadges;$('#collectionBack').onclick=home;$('#badgesBack').onclick=home;$('#bossBtn').onclick=boss;
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d8ecff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Luke's State Quest">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Luke's State Quest</title>
+<style>
+:root{
+  --navy:#081b4d; --blue:#1678ed; --blue2:#4d9df8; --bg:#edf4f8; --card:#ffffff;
+  --line:#cfe0f0; --muted:#5b6b81; --gold:#ffcb2d; --green:#238257; --red:#c84b4b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,sans-serif;color:var(--navy);background:
+linear-gradient(180deg,#d9efff 0 170px,var(--bg) 170px 100%);
+min-height:100%}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
+background:
+radial-gradient(circle at 15% 20%, rgba(26,114,212,.18), transparent 18%),
+radial-gradient(circle at 85% 8%, rgba(18,84,160,.14), transparent 15%),
+linear-gradient(135deg, rgba(36,94,44,.12), transparent 26%),
+linear-gradient(220deg, rgba(46,122,64,.08), transparent 24%);
+}
+body::after{content:"";position:fixed;left:0;right:0;top:82px;height:110px;z-index:-1;opacity:.18;
+background:
+linear-gradient(transparent 65%, #8cb2d6 65.2%),
+polygon(0 100%,7% 50%,14% 86%,20% 42%,30% 88%,39% 55%,48% 90%,60% 33%,68% 85%,76% 51%,85% 100%,100% 100%);
+clip-path:polygon(0 100%,5% 80%,10% 45%,16% 73%,20% 35%,26% 71%,34% 44%,41% 80%,49% 39%,56% 66%,64% 29%,71% 70%,79% 41%,86% 77%,93% 53%,100% 100%);
+}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+.app{max-width:1060px;margin:0 auto;padding:12px}
+.hidden{display:none !important}
+.header{display:grid;grid-template-columns:1.2fr 1fr auto;gap:16px;align-items:center;padding:8px 10px 14px}
+.logoWrap{display:flex;flex-direction:column;gap:2px}
+.mountain{font-size:36px;line-height:1}
+.logo{font-size:clamp(29px,5vw,48px);font-weight:1000;letter-spacing:-1px}
+.tagline{font-size:11px;letter-spacing:4px}
+.progressWrap .row{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.progress{height:14px;background:#d9e7f2;border-radius:999px;overflow:hidden;margin-top:6px}
+.progressFill{height:100%;background:linear-gradient(90deg,#2f74db,#5aa3ff);width:0%}
+.topStats{display:flex;gap:8px}
+.topStat{min-width:102px;background:rgba(255,255,255,.72);backdrop-filter:blur(10px);border:1px solid #bed4e6;border-radius:20px;padding:11px 12px;text-align:center;box-shadow:0 3px 12px rgba(10,35,70,.06)}
+.topStat .icon{font-size:26px;line-height:1}
+.topStat b{font-size:28px}
+.screen{background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:30px;padding:22px;box-shadow:0 10px 30px rgba(9,39,79,.08)}
+.center{text-align:center}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.soft,.primary,.ghost{border-radius:18px;padding:13px 18px;min-height:52px;font-weight:900}
+.soft{background:#eef5fb;color:var(--navy);border:1px solid #d4e3f0}
+.primary{background:linear-gradient(180deg,var(--blue2),var(--blue));color:white;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}
+.ghost{background:white;border:1px solid var(--line);color:var(--navy)}
+.heroTitle{font-size:clamp(28px,5vw,42px);margin:0}
+.muted{color:var(--muted)}
+.profileGrid,.familyGrid,.badgeGrid,.statesGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.profileCard,.familyCard,.badgeCard,.stateTile{background:#eef5fb;border:1px solid var(--line);border-radius:18px;padding:14px}
+.profileCard,.familyCard{cursor:pointer}
+.avatar{font-size:38px}
+.playerPill{display:inline-flex;align-items:center;gap:8px;background:#eef5fb;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:900}
+input{width:100%;border:2px solid var(--line);border-radius:16px;padding:12px 14px;min-height:52px;font-size:18px;margin:10px 0 14px}
+.avatarRow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.avatarBtn{width:54px;height:54px;border-radius:15px;background:#eef5fb;border:1px solid var(--line);font-size:28px}
+.avatarBtn.sel{outline:3px solid var(--blue)}
+.homeCards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.metric{background:#eef5fb;border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.metric .big{font-size:30px;font-weight:1000}
+.quizTop{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.badgePill{display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:16px;background:#eef5fb;border:1px solid #d0e1f0;font-weight:900}
+.quizTitle{text-align:center;margin:8px 0 16px}
+.quizTitle h1{font-size:clamp(44px,8vw,74px);margin:0;letter-spacing:-2px;line-height:1}
+.nickname{letter-spacing:7px;font-size:13px}
+.quizGrid{display:grid;grid-template-columns:1.25fr .9fr;gap:14px}
+.mapCard{background:#ebeff1;border-radius:22px;padding:10px;min-height:370px;display:grid;place-items:center;overflow:hidden;position:relative}
+.mapTexture{position:absolute;inset:0;opacity:.18;background:
+linear-gradient(90deg,transparent 14%,#4a5f74 14.2%,transparent 14.4%,transparent 48%,#4a5f74 48.2%,transparent 48.4%,transparent 84%,#4a5f74 84.2%,transparent 84.4%),
+linear-gradient(transparent 22%,#4a5f74 22.2%,transparent 22.4%,transparent 64%,#4a5f74 64.2%,transparent 64.4%) }
+.mapInner{position:relative;width:100%;height:350px;background:linear-gradient(180deg,#dde5d7,#f4f1eb);border-radius:18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.75)}
+#stateMap{position:absolute;inset:0;width:100%;height:100%}
+.stateBorder{fill:#84b66e;stroke:#ffffff;stroke-width:5;vector-effect:non-scaling-stroke;filter:drop-shadow(0 3px 2px rgba(0,0,0,.18))}
+.capitalStar{fill:var(--gold);stroke:var(--navy);stroke-width:1.8;vector-effect:non-scaling-stroke}
+.mapHint{position:absolute;left:14px;bottom:10px;font-size:11px;letter-spacing:1px;color:#354861;font-weight:800;background:rgba(255,255,255,.65);padding:4px 6px;border-radius:10px}
+.symbols{display:grid;grid-template-rows:repeat(3,1fr);gap:10px}
+.symbol{display:grid;grid-template-columns:1fr 110px;gap:12px;align-items:center;background:linear-gradient(180deg,#f7fbff,#ebf4fe);border:1px solid var(--line);border-radius:20px;padding:12px;min-height:112px}
+.symText{display:flex;gap:10px;align-items:flex-start}
+.symEmoji{font-size:34px;line-height:1}
+.symLabel b{display:block;font-size:19px}
+.symName{font-size:20px;line-height:1.2;margin-top:4px}
+.symArt{height:86px;border-radius:16px;display:grid;place-items:center;font-size:48px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);background:linear-gradient(145deg,#bad3ee,#eef7ff)}
+.factBox{margin-top:14px;background:linear-gradient(90deg,#edf6ff,#f7fbff);border:1px solid #d0e3f4;border-radius:20px;padding:16px;font-size:18px;line-height:1.35}
+.question{font-size:clamp(28px,4.5vw,40px);font-weight:1000;margin:20px 0 10px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.answer{background:linear-gradient(180deg,#f7fbff,#ebf3fb);border:1px solid var(--line);color:var(--navy);border-radius:18px;padding:20px 16px;font-size:22px;font-weight:900;text-align:center}
+.answer.selected{outline:3px solid var(--blue);color:var(--blue)}
+.answer.good{background:#e9f8ef;border-color:#74bd8d}
+.answer.bad{background:#fff0f0;border-color:#de9090}
+.submitWrap{text-align:center;margin-top:18px}
+.submitWrap .primary{min-width:min(480px,100%);font-size:22px;padding:16px 24px;border-radius:999px}
+.feedback{margin-top:12px;background:#eef5fb;border:1px solid var(--line);border-radius:16px;padding:13px;font-weight:800}
+.exploreStrip{margin-top:16px;border:1px solid #cddff1;border-radius:18px;padding:12px;display:flex;gap:10px;align-items:center;overflow-x:auto}
+.exploreTitle{white-space:nowrap;font-weight:900}
+.quickState{min-width:82px;background:#eef6fd;border:1px solid #d6e5f2;border-radius:14px;padding:8px;text-align:center;cursor:pointer}
+.quickState .mini{font-weight:1000;font-size:21px;display:block}
+.bottomNav{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;background:white;border-radius:26px;margin-top:12px;padding:8px;border:1px solid var(--line);position:sticky;bottom:4px;box-shadow:0 6px 20px rgba(7,27,77,.08)}
+.navBtn{background:white;border-radius:18px;padding:7px 4px;color:var(--navy);font-size:12px}
+.navBtn .icon{display:block;font-size:24px;line-height:1}
+.navBtn.active{color:var(--blue)}
+.statesGrid{grid-template-columns:repeat(5,1fr)}
+.stateTile{text-align:center;min-height:84px;display:flex;flex-direction:column;justify-content:center;cursor:pointer}
+.stateTile.mastered{background:#e8f7ee;border-color:#b7dfc7}
+.stateTile.learning{background:#fff7de;border-color:#ecd89d}
+.stateTile.unseen{background:#f4f6f8;color:#8893a2}
+.badgeCard.locked{opacity:.42}
+.modal{position:fixed;inset:0;background:rgba(7,27,77,.35);display:none;align-items:center;justify-content:center;padding:14px;z-index:20}
+.modal.show{display:flex}
+.modalCard{max-width:560px;width:100%;background:white;border-radius:24px;padding:20px;border:1px solid var(--line)}
+.smallStats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.listCard{background:#eef5fb;border:1px solid var(--line);border-radius:18px;padding:14px}
+.rankItem{display:flex;justify-content:space-between;align-items:center;background:#eef5fb;border:1px solid var(--line);border-radius:18px;padding:12px;margin:8px 0}
+@media (max-width:860px){
+  .header{grid-template-columns:1fr auto}
+  .progressWrap{grid-column:1/-1}
+  .topStat{min-width:88px}
+  .quizGrid{grid-template-columns:1fr}
+  .mapCard{min-height:310px}
+  .mapInner{height:290px}
+}
+@media (max-width:620px){
+  .app{padding:8px}
+  .screen{padding:14px;border-radius:22px}
+  .profileGrid,.familyGrid,.badgeGrid{grid-template-columns:1fr}
+  .statesGrid{grid-template-columns:repeat(3,1fr)}
+  .homeCards{grid-template-columns:1fr 1fr}
+  .answers{grid-template-columns:1fr 1fr}
+  .symbol{grid-template-columns:1fr;gap:8px;text-align:center}
+  .symText{justify-content:center}
+  .symArt{height:74px;font-size:40px}
+  .topStats{gap:6px}
+  .topStat{min-width:72px;padding:7px}
+  .topStat b{font-size:22px}
+  .tagline{letter-spacing:3px}
+  .nickname{letter-spacing:4px;font-size:11px}
+  .bottomNav{padding:6px 4px}
+  .navBtn{font-size:10px}
+  .navBtn .icon{font-size:21px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="logoWrap">
+      <div class="mountain">🏔️</div>
+      <div class="logo">LUKE'S STATE QUEST</div>
+      <div class="tagline">50 STATES. BIGGER MINDS.</div>
+    </div>
+    <div class="progressWrap">
+      <div class="row"><b id="levelLabel">Level 1</b><span id="masteredLabel">0 / 50</span></div>
+      <div class="progress"><div id="levelProgress" class="progressFill"></div></div>
+    </div>
+    <div class="topStats">
+      <div class="topStat"><div class="icon">🏆</div><b id="streakTop">0</b><div>Day Streak</div></div>
+      <div class="topStat"><div class="icon">⭐</div><b id="pointsTop">0</b><div>Points</div></div>
+    </div>
+  </header>
+
+  <section id="profiles" class="screen center">
+    <h1 class="heroTitle">Who's Playing?</h1>
+    <p class="muted">Each player keeps separate progress on this device.</p>
+    <div id="profileGrid" class="profileGrid"></div>
+    <button id="addPlayer" class="soft" style="width:100%;margin-top:12px">＋ ADD PLAYER</button>
+  </section>
+
+  <section id="newPlayer" class="screen hidden">
+    <h1 class="heroTitle">Add Player</h1>
+    <input id="playerName" maxlength="18" placeholder="Name or nickname">
+    <div id="avatarRow" class="avatarRow"></div>
+    <div class="row">
+      <button id="createPlayer" class="primary" style="flex:1">CREATE PLAYER</button>
+      <button id="cancelPlayer" class="soft" style="flex:1">CANCEL</button>
+    </div>
+  </section>
+
+  <section id="home" class="screen center hidden">
+    <div id="whoPill" class="playerPill"></div>
+    <div style="font-size:68px;margin-top:8px">🇺🇸</div>
+    <h1 class="heroTitle">Ready for today's State Quest?</h1>
+    <p class="muted">10 states per round. Missed states come back more often until you master them.</p>
+    <div class="homeCards">
+      <div class="metric"><div class="big" id="homeMastered">0</div>Mastered</div>
+      <div class="metric"><div class="big" id="homePerfects">0</div>Perfects</div>
+      <div class="metric"><div class="big" id="homeBadges">0</div>Badges</div>
+      <div class="metric"><div class="big" id="homeRounds">0</div>Rounds</div>
+    </div>
+    <div class="row">
+      <button id="startDaily" class="primary" style="flex:2">START TODAY'S 10</button>
+      <button id="bossBtn" class="soft">👾 BOSS BATTLE</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button id="familyBtn" class="soft" style="flex:1">🏆 FAMILY CHALLENGE</button>
+      <button id="switchPlayer" class="soft" style="flex:1">👤 SWITCH PLAYER</button>
+    </div>
+  </section>
+
+  <section id="quiz" class="screen hidden">
+    <div class="quizTop">
+      <button id="backQuiz" class="soft">← Back</button>
+      <div>
+        <span id="rematch" class="badgePill hidden">⚔️ REMATCH</span>
+        <button id="hintBtn" class="soft">💡 HINT</button>
+      </div>
+    </div>
+
+    <div class="quizTitle">
+      <h1 id="stateName"></h1>
+      <div id="stateNickname" class="nickname"></div>
+    </div>
+
+    <div class="quizGrid">
+      <div>
+        <div class="mapCard">
+          <div class="mapTexture"></div>
+          <div class="mapInner">
+            <svg id="stateMap" viewBox="0 0 360 250" aria-label="State outline with capital location">
+              <g id="mapLayer"></g>
+            </svg>
+            <div class="mapHint">★ marks the capital location</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="symbols">
+        <div class="symbol">
+          <div class="symText">
+            <div class="symEmoji">🐾</div>
+            <div class="symLabel"><b>State Animal</b><div id="animalName" class="symName"></div></div>
+          </div>
+          <div class="symArt" id="animalArt">🦬</div>
+        </div>
+        <div class="symbol">
+          <div class="symText">
+            <div class="symEmoji">🌸</div>
+            <div class="symLabel"><b>State Flower</b><div id="flowerName" class="symName"></div></div>
+          </div>
+          <div class="symArt" id="flowerArt">🌼</div>
+        </div>
+        <div class="symbol">
+          <div class="symText">
+            <div class="symEmoji">🐦</div>
+            <div class="symLabel"><b>State Bird</b><div id="birdName" class="symName"></div></div>
+          </div>
+          <div class="symArt" id="birdArt">🐦</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="factBox" class="factBox"></div>
+
+    <div class="question" id="questionText"></div>
+    <div id="answers" class="answers"></div>
+    <div class="submitWrap"><button id="submitBtn" class="primary">Submit Answer</button></div>
+    <div id="feedback" class="feedback hidden"></div>
+
+    <div class="exploreStrip">
+      <div class="exploreTitle">🗺️ Explore All 50</div>
+      <div id="quickStates" style="display:flex;gap:8px"></div>
+    </div>
+  </section>
+
+  <section id="statesView" class="screen hidden">
+    <div class="row"><h1 class="heroTitle">All 50 States</h1><button class="soft goHome">Home</button></div>
+    <p class="muted">States unlock after you see them in a quiz. Tap any viewed state to revisit its capital, map, animal, bird, flower, weird fact, and practice record.</p>
+    <div id="statesGrid" class="statesGrid"></div>
+  </section>
 
 
-let GEO=null;
+  <section id="stateInfoView" class="screen hidden">
+    <div class="row">
+      <button id="infoBack" class="soft">← All States</button>
+      <span id="infoStatus" class="badgePill"></span>
+    </div>
+    <div class="quizTitle">
+      <h1 id="infoStateName"></h1>
+      <div id="infoNickname" class="nickname"></div>
+    </div>
+    <div class="quizGrid">
+      <div>
+        <div class="mapCard">
+          <div class="mapTexture"></div>
+          <div class="mapInner">
+            <svg id="infoStateMap" viewBox="0 0 360 250" aria-label="State outline with capital location"><g id="infoMapLayer"></g></svg>
+            <div class="mapHint">★ capital location</div>
+          </div>
+        </div>
+      </div>
+      <div class="symbols">
+        <div class="symbol"><div class="symText"><div class="symEmoji">🐾</div><div class="symLabel"><b>State Animal</b><div id="infoAnimal" class="symName"></div></div></div><div class="symArt" id="infoAnimalArt">🐾</div></div>
+        <div class="symbol"><div class="symText"><div class="symEmoji">🌸</div><div class="symLabel"><b>State Flower</b><div id="infoFlower" class="symName"></div></div></div><div class="symArt">🌸</div></div>
+        <div class="symbol"><div class="symText"><div class="symEmoji">🐦</div><div class="symLabel"><b>State Bird</b><div id="infoBird" class="symName"></div></div></div><div class="symArt">🐦</div></div>
+      </div>
+    </div>
+    <div id="infoFact" class="factBox"></div>
+    <div class="listCard" style="margin-top:12px">
+      <div class="row">
+        <div><b>🏛️ Capital</b><div id="infoCapital" style="font-size:24px;font-weight:1000;margin-top:4px"></div></div>
+        <div style="text-align:right"><b>Practice record</b><div id="infoRecord" style="margin-top:4px"></div></div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="practiceThisState" class="primary" style="flex:1">PRACTICE THIS STATE</button>
+      <button id="infoAllStates" class="soft" style="flex:1">ALL STATES</button>
+    </div>
+  </section>
+
+  <section id="statsView" class="screen hidden">
+    <div class="row"><h1 class="heroTitle">Stats</h1><button class="soft goHome">Home</button></div>
+    <div class="smallStats">
+      <div class="listCard"><b>Longest streak</b><div id="statStreak" style="font-size:28px;font-weight:1000;margin-top:6px">0</div></div>
+      <div class="listCard"><b>Best score</b><div id="statBest" style="font-size:28px;font-weight:1000;margin-top:6px">0/10</div></div>
+      <div class="listCard"><b>Questions answered</b><div id="statAttempts" style="font-size:28px;font-weight:1000;margin-top:6px">0</div></div>
+      <div class="listCard"><b>Correct answers</b><div id="statCorrect" style="font-size:28px;font-weight:1000;margin-top:6px">0</div></div>
+    </div>
+    <div class="listCard" style="margin-top:12px">
+      <b>Needs practice</b>
+      <div id="needsPractice" style="margin-top:8px"></div>
+    </div>
+  </section>
+
+  <section id="badgesView" class="screen hidden">
+    <div class="row"><h1 class="heroTitle">Badges</h1><button class="soft goHome">Home</button></div>
+    <div id="badgeGrid" class="badgeGrid"></div>
+  </section>
+
+  <section id="familyView" class="screen hidden center">
+    <h1 class="heroTitle">Family Challenge</h1>
+    <p class="muted">Everyone gets the same 10 states. This mode does not change mastery or award chore points.</p>
+    <div id="familyGrid" class="familyGrid"></div>
+    <button id="startFamily" class="primary" style="margin-top:12px">START CHALLENGE</button>
+    <button class="soft goHome" style="margin-top:10px">BACK HOME</button>
+  </section>
+
+  <section id="familyResults" class="screen hidden center">
+    <h1 class="heroTitle">Family Challenge Results</h1>
+    <div id="familyResultsList"></div>
+    <button class="primary goHome" style="margin-top:14px">BACK HOME</button>
+  </section>
+
+  <section id="results" class="screen hidden center">
+    <div style="font-size:64px">🏆</div>
+    <h1 class="heroTitle">Quest Complete!</h1>
+    <p id="resultSummary"></p>
+    <div class="topStat" style="margin:0 auto"><div class="icon">⭐</div><b id="earnedPoints">0</b><div>Points Earned</div></div>
+    <div id="newMastery" style="margin-top:12px"></div>
+    <button id="doneBtn" class="primary" style="margin-top:14px">BACK HOME</button>
+  </section>
+
+  <nav id="bottomNav" class="bottomNav hidden">
+    <button class="navBtn active" data-nav="home"><span class="icon">🏠</span>Home</button>
+    <button class="navBtn" data-nav="states"><span class="icon">🗺️</span>All States</button>
+    <button class="navBtn" data-nav="family"><span class="icon">🏆</span>Challenges</button>
+    <button class="navBtn" data-nav="stats"><span class="icon">📊</span>Stats</button>
+    <button class="navBtn" data-nav="badges"><span class="icon">⭐</span>Badges</button>
+    <button class="navBtn" data-nav="settings"><span class="icon">⚙️</span>Settings</button>
+  </nav>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modalCard">
+    <div class="row"><h2 id="modalTitle" style="margin:0"></h2><button id="closeModal" class="soft">Close</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const STATES = [{"name":"Alabama","capital":"Montgomery","lat":32.3777,"lon":-86.3006,"bird":"Yellowhammer","flower":"Camellia","animal":"Black bear","nickname":"The Yellowhammer State","fact":"Alabama has an official state nut: the pecan."},{"name":"Alaska","capital":"Juneau","lat":58.3019,"lon":-134.4197,"bird":"Willow ptarmigan","flower":"Forget-me-not","animal":"Moose","nickname":"The Last Frontier","fact":"Alaska has more coastline than all the other U.S. states combined."},{"name":"Arizona","capital":"Phoenix","lat":33.4484,"lon":-112.074,"bird":"Cactus wren","flower":"Saguaro cactus blossom","animal":"Ringtail","nickname":"The Grand Canyon State","fact":"Most of Arizona does not observe daylight saving time."},{"name":"Arkansas","capital":"Little Rock","lat":34.7465,"lon":-92.2896,"bird":"Northern mockingbird","flower":"Apple blossom","animal":"White-tailed deer","nickname":"The Natural State","fact":"At Crater of Diamonds State Park, visitors can keep diamonds they find."},{"name":"California","capital":"Sacramento","lat":38.5816,"lon":-121.4944,"bird":"California quail","flower":"California poppy","animal":"California grizzly bear","nickname":"The Golden State","fact":"California's state animal is a grizzly bear even though wild grizzlies no longer live there."},{"name":"Colorado","capital":"Denver","lat":39.7392,"lon":-104.9903,"bird":"Lark bunting","flower":"Rocky Mountain columbine","animal":"Rocky Mountain bighorn sheep","nickname":"The Centennial State","fact":"Colorado has the highest average elevation of any U.S. state."},{"name":"Connecticut","capital":"Hartford","lat":41.7658,"lon":-72.6734,"bird":"American robin","flower":"Mountain laurel","animal":"Sperm whale","nickname":"The Constitution State","fact":"Connecticut's state insect is the praying mantis."},{"name":"Delaware","capital":"Dover","lat":39.1582,"lon":-75.5244,"bird":"Delaware Blue Hen","flower":"Peach blossom","animal":"Gray fox","nickname":"The First State","fact":"Delaware was the first state to ratify the U.S. Constitution."},{"name":"Florida","capital":"Tallahassee","lat":30.4383,"lon":-84.2807,"bird":"Northern mockingbird","flower":"Orange blossom","animal":"Florida panther","nickname":"The Sunshine State","fact":"South Florida is the only place where American alligators and American crocodiles naturally share habitat."},{"name":"Georgia","capital":"Atlanta","lat":33.749,"lon":-84.388,"bird":"Brown thrasher","flower":"Cherokee rose","animal":"White-tailed deer","nickname":"The Peach State","fact":"Georgia has a town named Santa Claus."},{"name":"Hawaii","capital":"Honolulu","lat":21.3099,"lon":-157.8581,"bird":"Nēnē","flower":"Yellow hibiscus","animal":"Hawaiian hoary bat","nickname":"The Aloha State","fact":"Hawaii is the only U.S. state made entirely of islands."},{"name":"Idaho","capital":"Boise","lat":43.615,"lon":-116.2023,"bird":"Mountain bluebird","flower":"Syringa","animal":"Appaloosa horse","nickname":"The Gem State","fact":"Idaho is famous for potatoes, but its nickname is the Gem State."},{"name":"Illinois","capital":"Springfield","lat":39.7817,"lon":-89.6501,"bird":"Northern cardinal","flower":"Violet","animal":"White-tailed deer","nickname":"The Prairie State","fact":"Chicago is Illinois's biggest city, but Springfield is the capital."},{"name":"Indiana","capital":"Indianapolis","lat":39.7684,"lon":-86.1581,"bird":"Northern cardinal","flower":"Peony","animal":"White-tailed deer","nickname":"The Hoosier State","fact":"The Indianapolis 500 is about 200 laps around its famous oval."},{"name":"Iowa","capital":"Des Moines","lat":41.5868,"lon":-93.625,"bird":"Eastern goldfinch","flower":"Wild rose","animal":"White-tailed deer","nickname":"The Hawkeye State","fact":"Iowa has more pigs than people."},{"name":"Kansas","capital":"Topeka","lat":39.0473,"lon":-95.6752,"bird":"Western meadowlark","flower":"Wild sunflower","animal":"American bison","nickname":"The Sunflower State","fact":"Kansas's official state song is Home on the Range."},{"name":"Kentucky","capital":"Frankfort","lat":38.2009,"lon":-84.8777,"bird":"Northern cardinal","flower":"Goldenrod","animal":"Gray squirrel","nickname":"The Bluegrass State","fact":"Kentucky has more barrels of aging bourbon than people."},{"name":"Louisiana","capital":"Baton Rouge","lat":30.4515,"lon":-91.1871,"bird":"Brown pelican","flower":"Magnolia","animal":"Louisiana black bear","nickname":"The Pelican State","fact":"Louisiana uses parishes instead of counties."},{"name":"Maine","capital":"Augusta","lat":44.3106,"lon":-69.7795,"bird":"Black-capped chickadee","flower":"White pine cone and tassel","animal":"Moose","nickname":"The Pine Tree State","fact":"Maine is the only U.S. state with a one-syllable name."},{"name":"Maryland","capital":"Annapolis","lat":38.9784,"lon":-76.4922,"bird":"Baltimore oriole","flower":"Black-eyed Susan","animal":"Chesapeake Bay retriever","nickname":"The Old Line State","fact":"Maryland's official state sport is jousting."},{"name":"Massachusetts","capital":"Boston","lat":42.3601,"lon":-71.0589,"bird":"Black-capped chickadee","flower":"Mayflower","animal":"Right whale","nickname":"The Bay State","fact":"In 1919, a giant molasses tank burst and sent a wave of molasses through part of Boston."},{"name":"Michigan","capital":"Lansing","lat":42.7325,"lon":-84.5555,"bird":"American robin","flower":"Apple blossom","animal":"White-tailed deer","nickname":"The Great Lakes State","fact":"Michigan touches four of the five Great Lakes."},{"name":"Minnesota","capital":"Saint Paul","lat":44.9537,"lon":-93.09,"bird":"Common loon","flower":"Pink and white lady's slipper","animal":"White-tailed deer","nickname":"The North Star State","fact":"Minnesota is called the Land of 10,000 Lakes, but it actually has more than 10,000."},{"name":"Mississippi","capital":"Jackson","lat":32.2988,"lon":-90.1848,"bird":"Northern mockingbird","flower":"Magnolia","animal":"White-tailed deer","nickname":"The Magnolia State","fact":"The teddy bear's name is linked to a Theodore Roosevelt hunting trip in Mississippi."},{"name":"Missouri","capital":"Jefferson City","lat":38.5767,"lon":-92.1735,"bird":"Eastern bluebird","flower":"Hawthorn blossom","animal":"Missouri mule","nickname":"The Show-Me State","fact":"The Gateway Arch in St. Louis is taller than the Washington Monument."},{"name":"Montana","capital":"Helena","lat":46.5891,"lon":-112.0391,"bird":"Western meadowlark","flower":"Bitterroot","animal":"Grizzly bear","nickname":"The Treasure State","fact":"Montana has more cattle than people."},{"name":"Nebraska","capital":"Lincoln","lat":40.8136,"lon":-96.7026,"bird":"Western meadowlark","flower":"Goldenrod","animal":"White-tailed deer","nickname":"The Cornhusker State","fact":"Nebraska is the only state with a one-house state legislature."},{"name":"Nevada","capital":"Carson City","lat":39.1638,"lon":-119.7674,"bird":"Mountain bluebird","flower":"Sagebrush","animal":"Desert bighorn sheep","nickname":"The Silver State","fact":"Nevada is the driest U.S. state."},{"name":"New Hampshire","capital":"Concord","lat":43.2081,"lon":-71.5376,"bird":"Purple finch","flower":"Purple lilac","animal":"White-tailed deer","nickname":"The Granite State","fact":"New Hampshire has the shortest ocean coastline of any U.S. coastal state."},{"name":"New Jersey","capital":"Trenton","lat":40.2206,"lon":-74.7699,"bird":"Eastern goldfinch","flower":"Violet","animal":"Horse","nickname":"The Garden State","fact":"New Jersey is famous for having more diners than any other state."},{"name":"New Mexico","capital":"Santa Fe","lat":35.687,"lon":-105.9378,"bird":"Greater roadrunner","flower":"Yucca flower","animal":"American black bear","nickname":"The Land of Enchantment","fact":"Santa Fe is the oldest state capital in the United States."},{"name":"New York","capital":"Albany","lat":42.6526,"lon":-73.7562,"bird":"Eastern bluebird","flower":"Rose","animal":"Beaver","nickname":"The Empire State","fact":"New York City is the state's biggest city, but Albany is the capital. Sneaky!"},{"name":"North Carolina","capital":"Raleigh","lat":35.7796,"lon":-78.6382,"bird":"Northern cardinal","flower":"Flowering dogwood","animal":"Gray squirrel","nickname":"The Tar Heel State","fact":"The Wright brothers' first powered airplane flight happened at Kitty Hawk."},{"name":"North Dakota","capital":"Bismarck","lat":46.8083,"lon":-100.7837,"bird":"Western meadowlark","flower":"Wild prairie rose","animal":"Nokota horse","nickname":"The Peace Garden State","fact":"North Dakota has a town named Rugby that is promoted as the geographic center of North America."},{"name":"Ohio","capital":"Columbus","lat":39.9612,"lon":-82.9988,"bird":"Northern cardinal","flower":"Scarlet carnation","animal":"White-tailed deer","nickname":"The Buckeye State","fact":"Ohio's state flag is the only U.S. state flag that is not rectangular."},{"name":"Oklahoma","capital":"Oklahoma City","lat":35.4676,"lon":-97.5164,"bird":"Scissor-tailed flycatcher","flower":"Oklahoma rose","animal":"American bison","nickname":"The Sooner State","fact":"Oklahoma has an official state meal made up of 13 different foods."},{"name":"Oregon","capital":"Salem","lat":44.9429,"lon":-123.0351,"bird":"Western meadowlark","flower":"Oregon grape","animal":"American beaver","nickname":"The Beaver State","fact":"Oregon's state flag has different designs on the front and back."},{"name":"Pennsylvania","capital":"Harrisburg","lat":40.2732,"lon":-76.8867,"bird":"Ruffed grouse","flower":"Mountain laurel","animal":"White-tailed deer","nickname":"The Keystone State","fact":"The first successful U.S. zoo opened in Philadelphia in 1874."},{"name":"Rhode Island","capital":"Providence","lat":41.824,"lon":-71.4128,"bird":"Rhode Island Red","flower":"Violet","animal":"Harbor seal","nickname":"The Ocean State","fact":"Rhode Island is the smallest U.S. state by area."},{"name":"South Carolina","capital":"Columbia","lat":34.0007,"lon":-81.0348,"bird":"Carolina wren","flower":"Yellow jessamine","animal":"White-tailed deer","nickname":"The Palmetto State","fact":"South Carolina's official state dance is the shag."},{"name":"South Dakota","capital":"Pierre","lat":44.3683,"lon":-100.351,"bird":"Ring-necked pheasant","flower":"American pasque flower","animal":"Coyote","nickname":"The Mount Rushmore State","fact":"South Dakota's capital, Pierre, is pronounced peer."},{"name":"Tennessee","capital":"Nashville","lat":36.1627,"lon":-86.7816,"bird":"Northern mockingbird","flower":"Iris","animal":"Raccoon","nickname":"The Volunteer State","fact":"Tennessee borders eight states, tied for the most of any state."},{"name":"Texas","capital":"Austin","lat":30.2672,"lon":-97.7431,"bird":"Northern mockingbird","flower":"Bluebonnet","animal":"Texas longhorn","nickname":"The Lone Star State","fact":"El Paso is closer to California than it is to some parts of eastern Texas."},{"name":"Utah","capital":"Salt Lake City","lat":40.7608,"lon":-111.891,"bird":"California gull","flower":"Sego lily","animal":"Rocky Mountain elk","nickname":"The Beehive State","fact":"Utah's state insect is the honeybee, and its nickname is the Beehive State."},{"name":"Vermont","capital":"Montpelier","lat":44.2601,"lon":-72.5754,"bird":"Hermit thrush","flower":"Red clover","animal":"Morgan horse","nickname":"The Green Mountain State","fact":"Montpelier is the least-populous U.S. state capital."},{"name":"Virginia","capital":"Richmond","lat":37.5407,"lon":-77.436,"bird":"Northern cardinal","flower":"American dogwood","animal":"Virginia big-eared bat","nickname":"The Old Dominion","fact":"Virginia has produced eight U.S. presidents, more than any other state."},{"name":"Washington","capital":"Olympia","lat":47.0379,"lon":-122.9007,"bird":"Willow goldfinch","flower":"Coast rhododendron","animal":"Olympic marmot","nickname":"The Evergreen State","fact":"Washington is the only state named after a U.S. president."},{"name":"West Virginia","capital":"Charleston","lat":38.3498,"lon":-81.6326,"bird":"Northern cardinal","flower":"Rhododendron","animal":"Black bear","nickname":"The Mountain State","fact":"West Virginia became a state during the Civil War."},{"name":"Wisconsin","capital":"Madison","lat":43.0731,"lon":-89.4012,"bird":"American robin","flower":"Wood violet","animal":"Badger","nickname":"The Badger State","fact":"Wisconsin's official state dairy product is cheese."},{"name":"Wyoming","capital":"Cheyenne","lat":41.14,"lon":-104.8202,"bird":"Western meadowlark","flower":"Indian paintbrush","animal":"American bison","nickname":"The Equality State","fact":"Wyoming was the first U.S. state to give women the right to vote."}];
+const STATE_NAMES = STATES.map(s=>s.name);
+const DEFAULT_AVATARS = ['🧢','👩','🧔','🦊','🐻','🐯','⚾','🚀','🌈'];
+const DEFAULT_PROFILES = [
+  {name:'Luke',avatar:'🧢'},
+  {name:'Mom',avatar:'👩'},
+  {name:'Dad',avatar:'🧔'}
+];
+const BADGES = [
+  ['🏆','Perfect Round', p => p.perfect > 0, 'Get 10 out of 10 on a Daily Quest'],
+  ['🔥','Hot Streak', p => p.streak >= 3, 'Reach a 3-day streak'],
+  ['🗺️','10-State Club', p => masteredCount(p) >= 10, 'Master 10 states'],
+  ['💪','Comeback Kid', p => STATES.some(x => st(p,x.name).misses > 0 && st(p,x.name).streak >= 2), 'Recover from a miss and answer it correctly twice in a row'],
+  ['👾','Boss Beater', p => p.bossWins > 0, 'Beat a Boss Battle'],
+  ['⭐','Century Club', p => p.points >= 100, 'Earn 100 points'],
+  ['🧠','Capital Crusher', p => masteredCount(p) >= 25, 'Master 25 states'],
+  ['🇺🇸','Master of the 50', p => masteredCount(p) === 50, 'Master all 50 states']
+];
+
+const $ = id => document.getElementById(id);
+const views = ['profiles','newPlayer','home','quiz','statesView','stateInfoView','statsView','badgesView','familyView','familyResults','results'];
+
+let currentPlayer = localStorage.getItem('sqCurrentPlayer') || '';
+let data = null;
+let round = [];
+let i = 0;
+let score = 0;
+let selected = null;
+let familyMode = false;
+let familyRoster = [];
+let familyScores = [];
+let familyIndex = 0;
+let hintUsed = false;
+let newMasteredThisRound = [];
+let GEO = null;
+
+function saveProfiles(ps){ localStorage.setItem('sqProfiles', JSON.stringify(ps)); }
+function getProfiles(){ let ps = JSON.parse(localStorage.getItem('sqProfiles') || 'null'); if(!ps || !ps.length){ ps = DEFAULT_PROFILES; saveProfiles(ps); } return ps; }
+function blankData(){ return {states:{}, points:0, perfect:0, streak:0, maxStreak:0, lastDay:'', badges:[], rounds:0, bossWins:0, best:0 }; }
+function loadPlayerData(name){ return JSON.parse(localStorage.getItem('sq_'+name) || JSON.stringify(blankData())); }
+function saveData(){ localStorage.setItem('sq_'+currentPlayer, JSON.stringify(data)); }
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function previousDayStr(){ let d=new Date(); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); }
+
+function st(profile,name){
+  profile.states[name] = profile.states[name] || {attempts:0, correct:0, misses:0, streak:0, mastered:false, viewed:false};
+  return profile.states[name];
+}
+function masteredCount(profile){ return STATES.filter(s => st(profile,s.name).mastered).length; }
+function totalAttempts(profile){ return STATES.reduce((n,s) => n + st(profile,s.name).attempts, 0); }
+function totalCorrect(profile){ return STATES.reduce((n,s) => n + st(profile,s.name).correct, 0); }
+
+function updateTop(){
+  if(!data) return;
+  const mastered = masteredCount(data);
+  $('masteredLabel').textContent = `${mastered} / 50`;
+  $('streakTop').textContent = data.streak || 0;
+  $('pointsTop').textContent = data.points || 0;
+  const level = Math.min(6, 1 + Math.floor(mastered / 10));
+  $('levelLabel').textContent = `Level ${level}`;
+  $('levelProgress').style.width = `${((mastered % 10) / 10) * 100}%`;
+}
+
+function setNav(active){
+  $('bottomNav').classList.toggle('hidden', !currentPlayer);
+  document.querySelectorAll('.navBtn').forEach(btn => btn.classList.toggle('active', btn.dataset.nav===active));
+}
+
+function show(view){
+  views.forEach(v => $(v).classList.add('hidden'));
+  $(view).classList.remove('hidden');
+  setNav(view==='statesView'?'states':view==='statsView'?'stats':view==='badgesView'?'badges':view==='familyView'?'family':view==='profiles'?'settings':view==='home'?'home':view==='results'?'home':view==='familyResults'?'family':'home');
+  if(view==='statesView') renderStatesView();
+  if(view==='statsView') renderStatsView();
+  if(view==='badgesView') renderBadges();
+}
+
+function choosePlayer(profile){
+  currentPlayer = profile.name;
+  localStorage.setItem('sqCurrentPlayer', currentPlayer);
+  data = loadPlayerData(currentPlayer);
+  updateTop();
+  renderHome();
+  show('home');
+}
+
+function renderProfiles(){
+  const box = $('profileGrid');
+  box.innerHTML = '';
+  getProfiles().forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'profileCard';
+    btn.innerHTML = `<div class="avatar">${p.avatar}</div><div style="font-weight:1000;font-size:22px">${p.name}</div>`;
+    btn.onclick = () => choosePlayer(p);
+    box.appendChild(btn);
+  });
+}
+
+function renderHome(){
+  updateTop();
+  $('whoPill').innerHTML = `${getProfiles().find(x=>x.name===currentPlayer)?.avatar || '🧢'} ${currentPlayer}`;
+  $('homeMastered').textContent = masteredCount(data);
+  $('homePerfects').textContent = data.perfect || 0;
+  $('homeBadges').textContent = BADGES.filter(b=>b[2](data)).length;
+  $('homeRounds').textContent = data.rounds || 0;
+}
+
+function weightedRound(n=10){
+  const weighted = [];
+  STATES.forEach(s => {
+    const z = st(data,s.name);
+    const w = z.attempts===0 ? 7 : z.mastered ? 1 : 3 + z.misses*4;
+    for(let k=0;k<w;k++) weighted.push(s);
+  });
+  const seen = new Set();
+  const out = [];
+  while(out.length < n && weighted.length){
+    const idx = Math.floor(Math.random()*weighted.length);
+    const item = weighted.splice(idx,1)[0];
+    if(!seen.has(item.name)){
+      seen.add(item.name);
+      out.push(item);
+    }
+  }
+  while(out.length < n){
+    const item = STATES[Math.floor(Math.random()*STATES.length)];
+    if(!seen.has(item.name)){ seen.add(item.name); out.push(item); }
+  }
+  return out;
+}
+
+function shuffled(arr){
+  const a = [...arr];
+  for(let j=a.length-1;j>0;j--){ const k=Math.floor(Math.random()*(j+1)); [a[j],a[k]]=[a[k],a[j]]; }
+  return a;
+}
+
+function startRound(kind='daily'){
+  familyMode = false;
+  round = kind==='boss' ? weightedRound(12) : weightedRound(10);
+  i = 0; score = 0; selected = null; hintUsed=false; newMasteredThisRound=[];
+  $('questionText').textContent = kind==='boss' ? '' : '';
+  $('hintBtn').disabled = false;
+  $('hintBtn').textContent = '💡 HINT';
+  $('backQuiz').onclick = ()=>show('home');
+  renderQuestion();
+  show('quiz');
+}
+
+function renderQuestion(){
+  const q = round[i];
+  if(!familyMode){ st(data,q.name).viewed = true; saveData(); }
+  $('stateName').textContent = q.name.toUpperCase();
+  $('stateNickname').textContent = q.nickname.toUpperCase();
+  $('rematch').classList.toggle('hidden', familyMode || st(data,q.name).misses===0);
+  $('animalName').textContent = q.animal;
+  $('flowerName').textContent = q.flower;
+  $('birdName').textContent = q.bird;
+  $('animalArt').textContent = q.animal.includes('bear') ? '🐻' : q.animal.includes('horse') ? '🐴' : q.animal.includes('deer') ? '🦌' : q.animal.includes('bison') ? '🦬' : q.animal.includes('whale') ? '🐋' : q.animal.includes('seal') ? '🦭' : q.animal.includes('panther') ? '🐆' : q.animal.includes('bat') ? '🦇' : q.animal.includes('fox') ? '🦊' : q.animal.includes('squirrel') ? '🐿️' : q.animal.includes('beaver') ? '🦫' : q.animal.includes('mule') ? '🐴' : q.animal.includes('marmot') ? '🐿️' : q.animal.includes('elk') ? '🫎' : '🐾';
+  $('flowerArt').textContent = '🌸';
+  $('birdArt').textContent = q.bird.includes('cardinal') ? '🐦' : q.bird.includes('robin') ? '🐦' : q.bird.includes('gull') ? '🕊️' : q.bird.includes('pelican') ? '🪿' : q.bird.includes('pheasant') ? '🦃' : '🐦';
+  $('factBox').innerHTML = `🤯 <b>Weird (but true!) fact:</b> ${q.fact}`;
+  $('questionText').innerHTML = `🏛️ What is the capital of ${q.name}?`;
+  $('feedback').classList.add('hidden');
+  $('feedback').innerHTML = '';
+  selected = null;
+  hintUsed = false;
+  $('hintBtn').disabled = false;
+  $('hintBtn').textContent = '💡 HINT';
+  const wrongs = shuffled(STATES.filter(s=>s.capital!==q.capital).map(s=>s.capital)).slice(0,3);
+  const options = shuffled([q.capital,...wrongs]);
+  const answers = $('answers');
+  answers.innerHTML = '';
+  options.forEach(opt => {
+    const b = document.createElement('button');
+    b.className='answer';
+    b.textContent=opt;
+    b.onclick=()=>{ if($('submitBtn').disabled) return; selected=opt; [...answers.children].forEach(x=>x.classList.remove('selected')); b.classList.add('selected'); };
+    answers.appendChild(b);
+  });
+  $('submitBtn').disabled = false;
+  $('submitBtn').textContent = i === round.length-1 ? 'Submit Answer' : 'Submit Answer';
+  drawState(q);
+  renderQuickStates();
+}
+
+function renderQuickStates(){
+  const strip = $('quickStates');
+  strip.innerHTML='';
+  shuffled(STATES).slice(0,10).forEach(s=>{
+    const d=document.createElement('div');
+    d.className='quickState';
+    d.innerHTML=`<span class="mini">${s.name.slice(0,2).toUpperCase()}</span>${s.name}`;
+    d.onclick=()=>{const z=st(data,s.name); if(z.viewed||z.attempts>0) showStateInfo(s.name); else alert('You have not discovered '+s.name+' yet. Find it in a quiz first!');};
+    strip.appendChild(d);
+  });
+}
+
+function processAnswer(chosen){
+  const q = round[i];
+  const correct = chosen === q.capital;
+  if(!familyMode){
+    const z = st(data,q.name);
+    z.attempts += 1;
+    if(correct){
+      z.correct += 1; z.streak += 1;
+      if(score!==null) score += 1;
+      if(!z.mastered && z.correct >= 3 && z.streak >= 2){ z.mastered = true; newMasteredThisRound.push(q.name); }
+    } else {
+      z.misses += 1; z.streak = 0; z.mastered = false;
+    }
+  } else {
+    if(correct) score += 1;
+  }
+  return correct;
+}
+
+function revealAnswer(correct, chosen){
+  [...$('answers').children].forEach(btn => {
+    btn.disabled = true;
+    if(btn.textContent === round[i].capital) btn.classList.add('good');
+    if(btn.textContent === chosen && !correct) btn.classList.add('bad');
+  });
+  $('submitBtn').disabled = false;
+  $('submitBtn').textContent = i===round.length-1 ? 'Finish Round' : 'Next State';
+  $('feedback').classList.remove('hidden');
+  $('feedback').innerHTML = correct
+    ? `🎉 <b>Correct!</b> ${round[i].capital} is the capital of ${round[i].name}.`
+    : `💡 <b>Not this time.</b> The capital of ${round[i].name} is <b>${round[i].capital}</b>.`;
+}
+
+function finishRound(){
+  if(!familyMode){
+    data.rounds += 1;
+    data.best = Math.max(data.best||0, score);
+    const today = todayStr();
+    if(data.lastDay !== today){
+      data.streak = data.lastDay === previousDayStr() ? (data.streak||0)+1 : 1;
+      data.maxStreak = Math.max(data.maxStreak||0, data.streak);
+      data.lastDay = today;
+    }
+    const pts = score===round.length ? 10 : score>=Math.ceil(round.length*.8) ? 8 : score>=Math.ceil(round.length*.6) ? 5 : 3;
+    data.points += pts;
+    if(score===round.length) data.perfect += 1;
+    saveData();
+    updateTop();
+    $('earnedPoints').textContent = pts;
+    $('resultSummary').textContent = `You scored ${score} / ${round.length}.`;
+    $('newMastery').innerHTML = newMasteredThisRound.length ? `<b>New mastery:</b> ${newMasteredThisRound.join(', ')}` : `<span class="muted">No new states mastered this round yet. Keep going.</span>`;
+    show('results');
+  } else {
+    familyScores.push({name:familyRoster[familyIndex].name, avatar:familyRoster[familyIndex].avatar, score});
+    familyIndex++;
+    if(familyIndex < familyRoster.length){
+      alert(`${familyRoster[familyIndex].avatar} ${familyRoster[familyIndex].name}'s turn!`);
+      i = 0; score = 0; selected = null; hintUsed=false;
+      renderQuestion();
+    } else {
+      const list = $('familyResultsList');
+      list.innerHTML = '';
+      [...familyScores].sort((a,b)=>b.score-a.score).forEach((r,idx)=>{
+        const d=document.createElement('div');
+        d.className='rankItem';
+        d.innerHTML = `<div><b>${idx+1}. ${r.avatar} ${r.name}</b></div><div><b>${r.score} / ${round.length}</b></div>`;
+        list.appendChild(d);
+      });
+      show('familyResults');
+    }
+  }
+}
+
+function submitCurrent(){
+  if($('submitBtn').textContent !== 'Submit Answer' && $('submitBtn').textContent !== 'Finish Round' && $('submitBtn').textContent !== 'Next State') return;
+  if($('submitBtn').textContent === 'Next State' || $('submitBtn').textContent === 'Finish Round'){
+    if(i < round.length-1){ i += 1; renderQuestion(); } else { finishRound(); }
+    return;
+  }
+  if(!selected){ alert('Pick an answer first.'); return; }
+  const correct = processAnswer(selected);
+  $('submitBtn').textContent = i===round.length-1 ? 'Finish Round' : 'Next State';
+  $('submitBtn').disabled = false;
+  revealAnswer(correct, selected);
+}
+
+function useHint(){
+  if(hintUsed) return;
+  const q = round[i];
+  hintUsed = true;
+  $('hintBtn').disabled = true;
+  const wrongButtons = [...$('answers').children].filter(b => b.textContent !== q.capital);
+  shuffled(wrongButtons).slice(0,2).forEach(b => { b.style.opacity = .35; b.disabled = true; });
+  $('hintBtn').textContent = `💡 Capital starts with "${q.capital[0]}"`;
+}
+
+function renderStatesView(){
+  const grid = $('statesGrid');
+  grid.innerHTML = '';
+  STATES.forEach(s => {
+    const z = st(data,s.name);
+    const tile = document.createElement('button');
+    tile.className = `stateTile ${z.mastered ? 'mastered' : z.attempts ? 'learning' : 'unseen'}`;
+    const viewed = !!z.viewed || z.attempts > 0;
+    tile.innerHTML = `<b>${viewed ? s.name : '🔒 ' + s.name}</b><small>${z.mastered ? 'Mastered' : viewed ? 'Viewed • Tap for info' : 'Not viewed yet'}</small>`;
+    tile.disabled = !viewed;
+    tile.style.cursor = viewed ? 'pointer' : 'default';
+    tile.onclick = viewed ? ()=>showStateInfo(s.name) : null;
+    grid.appendChild(tile);
+  });
+}
+
+function renderStatsView(){
+  $('statStreak').textContent = data.maxStreak || data.streak || 0;
+  $('statBest').textContent = `${data.best || 0} / 10`;
+  $('statAttempts').textContent = totalAttempts(data);
+  $('statCorrect').textContent = totalCorrect(data);
+  const needy = STATES.map(s => [s.name, st(data,s.name).misses]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  $('needsPractice').innerHTML = needy.length ? needy.map(n=>`<span class="badgePill" style="margin:4px 6px 0 0">${n[0]} • ${n[1]} misses</span>`).join('') : '<span class="muted">No trouble spots yet.</span>';
+}
+
+function renderBadges(){
+  const box = $('badgeGrid');
+  box.innerHTML = '';
+  BADGES.forEach(([icon,title,fn,desc]) => {
+    const earned = fn(data);
+    const div = document.createElement('div');
+    div.className = 'badgeCard ' + (earned ? '' : 'locked');
+    div.innerHTML = `<div style="font-size:34px">${icon}</div><b>${title}</b><div class="muted" style="margin-top:4px">${desc}</div><div style="margin-top:8px;font-weight:900">${earned ? 'Unlocked' : 'Locked'}</div>`;
+    box.appendChild(div);
+  });
+}
+
+function openStateModal(name){
+  const s = STATES.find(x=>x.name===name);
+  const z = st(data,s.name);
+  $('modalTitle').textContent = s.name;
+  $('modalBody').innerHTML = `
+    <div class="listCard"><b>Nickname:</b> ${s.nickname}</div>
+    <div class="smallStats" style="margin-top:10px">
+      <div class="listCard"><b>Capital</b><div style="margin-top:6px">${s.capital}</div></div>
+      <div class="listCard"><b>Mastery</b><div style="margin-top:6px">${z.mastered ? 'Mastered' : z.attempts ? 'Learning' : 'Unseen'}</div></div>
+      <div class="listCard"><b>Animal</b><div style="margin-top:6px">${s.animal}</div></div>
+      <div class="listCard"><b>Bird</b><div style="margin-top:6px">${s.bird}</div></div>
+      <div class="listCard"><b>Flower</b><div style="margin-top:6px">${s.flower}</div></div>
+      <div class="listCard"><b>Stats</b><div style="margin-top:6px">Attempts: ${z.attempts} • Misses: ${z.misses}</div></div>
+    </div>
+    <div class="factBox" style="margin-top:10px">🤯 <b>Weird (but true!) fact:</b> ${s.fact}</div>`;
+  $('modal').classList.add('show');
+}
+
+function renderFamilyView(){
+  const box = $('familyGrid');
+  box.innerHTML = '';
+  getProfiles().forEach(p => {
+    const d = document.createElement('div');
+    d.className = 'familyCard';
+    d.innerHTML = `<div class="avatar">${p.avatar}</div><b>${p.name}</b>`;
+    box.appendChild(d);
+  });
+}
+
 async function loadGeo(){
-  try{
-    let cached=localStorage.getItem('sqGeo50');
-    if(cached){GEO=JSON.parse(cached);return}
-    let r=await fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json');
-    if(!r.ok)throw new Error('map');
-    GEO=await r.json();localStorage.setItem('sqGeo50',JSON.stringify(GEO));
-  }catch(e){GEO=null}
+  if(GEO) return GEO;
+  const cached = localStorage.getItem('sqGeo50');
+  if(cached){ GEO = JSON.parse(cached); return GEO; }
+  const r = await fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json');
+  GEO = await r.json();
+  localStorage.setItem('sqGeo50', JSON.stringify(GEO));
+  return GEO;
 }
-function ringsOf(g){if(!g)return[];return g.type==='Polygon'?g.coordinates:g.coordinates.flat()}
-function drawState(info){
- const layer=$('#mapLayer');layer.innerHTML='';
- if(!GEO){layer.innerHTML='<text x="180" y="105" text-anchor="middle" font-size="18" fill="#667085">Loading state map…</text>';loadGeo().then(()=>drawState(info));return}
- const f=GEO.features.find(x=>x.properties.name===info.name);if(!f)return;
- const rings=ringsOf(f.geometry),pts=rings.flat();
- let minX=Math.min(...pts.map(p=>p[0])),maxX=Math.max(...pts.map(p=>p[0])),minY=Math.min(...pts.map(p=>p[1])),maxY=Math.max(...pts.map(p=>p[1]));
- const pad=20,W=360,H=230,sx=(W-2*pad)/(maxX-minX),sy=(H-2*pad)/(maxY-minY),sc=Math.min(sx,sy);
- const ox=(W-(maxX-minX)*sc)/2,oy=(H-(maxY-minY)*sc)/2;
- const xy=p=>[ox+(p[0]-minX)*sc,H-(oy+(p[1]-minY)*sc)];
- rings.forEach(r=>{let d=r.map((p,i)=>{let q=xy(p);return(i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1)}).join(' ')+' Z';let path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('class','stateBorder');layer.appendChild(path)});
- let q=xy([info.lon,info.lat]),star=document.createElementNS('http://www.w3.org/2000/svg','text');star.setAttribute('x',q[0]);star.setAttribute('y',q[1]+6);star.setAttribute('text-anchor','middle');star.setAttribute('font-size','24');star.setAttribute('class','capitalStar');star.textContent='★';layer.appendChild(star);
- let label=document.createElementNS('http://www.w3.org/2000/svg','text');label.setAttribute('x',Math.min(W-48,Math.max(48,q[0])));label.setAttribute('y',Math.min(H-8,q[1]+24));label.setAttribute('text-anchor','middle');label.setAttribute('class','capitalText');label.textContent='';
-}
-loadGeo();
 
-const AV=['🧢','👩','🧔','🦊','🐻','🐯','🚀','⚾'];
-function profiles(){return JSON.parse(localStorage.getItem('sqProfiles')||'[]')}
-function saveProfiles(x){localStorage.setItem('sqProfiles',JSON.stringify(x))}
-function profileScreen(){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#profiles').classList.remove('hidden');let g=$('#profileGrid');g.innerHTML='';let ps=profiles();if(!ps.length){ps=[{name:'Luke',avatar:'🧢'},{name:'Mom',avatar:'👩'},{name:'Dad',avatar:'🧔'}];saveProfiles(ps)}ps.forEach(p=>{let b=document.createElement('button');b.className='profilecard';b.innerHTML=`<div class="avatarbig">${p.avatar}</div><b>${p.name}</b>`;b.onclick=()=>choosePlayer(p);g.appendChild(b)})}
-function choosePlayer(p){currentPlayer=p.name;localStorage.setItem('sqCurrentPlayer',currentPlayer);data=JSON.parse(localStorage.getItem('sq_'+currentPlayer)||'{"states":{},"points":0,"perfect":0,"streak":0,"lastDay":"","badges":[],"rounds":0,"bossWins":0,"best":0}');data.rounds=data.rounds||0;data.bossWins=data.bossWins||0;data.best=data.best||0;document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#home').classList.remove('hidden');$('#who').textContent=p.avatar+' '+p.name;updateHome()}
-$('#switchPlayer').onclick=profileScreen;
-$('#addPlayer').onclick=()=>{document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#newPlayer').classList.remove('hidden');let r=$('#avatarRow');r.innerHTML='';AV.forEach((a,i)=>{let b=document.createElement('button');b.className='secondary avatarpick';b.textContent=a;b.dataset.a=a;b.onclick=()=>{[...r.children].forEach(x=>x.style.outline='');b.style.outline='3px solid #254b8b';r.dataset.pick=a};r.appendChild(b)});r.dataset.pick='🧢'};
-$('#cancelPlayer').onclick=profileScreen;
-$('#createPlayer').onclick=()=>{let n=$('#playerName').value.trim();if(!n)return alert('Enter a name first.');let ps=profiles();if(ps.some(p=>p.name.toLowerCase()===n.toLowerCase()))return alert('That player already exists.');let p={name:n,avatar:$('#avatarRow').dataset.pick||'🧢'};ps.push(p);saveProfiles(ps);$('#playerName').value='';choosePlayer(p)};
-$('#familyBtn').onclick=()=>{document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#family').classList.remove('hidden');let box=$('#familyPlayers');box.innerHTML='';profiles().forEach(p=>{let d=document.createElement('div');d.className='familycard';d.innerHTML=`<span class="avatarbig">${p.avatar}</span><br><b>${p.name}</b>`;box.appendChild(d)})};
-$('#familyBack').onclick=()=>choosePlayer(profiles().find(p=>p.name===currentPlayer)||profiles()[0]);
-$('#startFamily').onclick=()=>{familyRoster=profiles();if(familyRoster.length<2)return alert('Add at least two players first.');familyMode=true;familyPos=0;familyScores=[];round=shuffle(S).slice(0,10);i=0;score=0;newM=[];document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#quiz').classList.remove('hidden');alert(familyRoster[0].avatar+' '+familyRoster[0].name+" goes first! Pass them the screen.");render()};
-function familyAnswer(c){if(locked)return;locked=true;let st=round[i],ok=c===st[1];if(ok)score++;[...$('#answers').children].forEach(b=>{b.disabled=true;if(b.textContent===st[1])b.style.background='#edf8f0';if(b.textContent===c&&!ok)b.style.background='#fff0f0'});$('#feedback').innerHTML=ok?`🎉 <b>YES!</b> ${st[1]} is the capital of ${st[0]}.`:`💡 ${st[1]} is the capital of ${st[0]}.`;$('#feedback').classList.remove('hidden');$('#liveScore').textContent=`${score} correct`;$('#next').textContent=i===9?'FINISH TURN 🏁':'NEXT STATE →';$('#next').classList.remove('hidden')}
-function familyFinishTurn(){familyScores.push({name:familyRoster[familyPos].name,avatar:familyRoster[familyPos].avatar,score});familyPos++;if(familyPos<familyRoster.length){i=0;score=0;locked=false;alert(familyRoster[familyPos].avatar+' '+familyRoster[familyPos].name+"'s turn! Pass them the screen.");render()}else{familyMode=false;$('#quiz').classList.remove('boss');document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));$('#familyResults').classList.remove('hidden');let sorted=[...familyScores].sort((a,b)=>b.score-a.score),top=sorted[0].score,winners=sorted.filter(x=>x.score===top);$('#familyResultsList').innerHTML=sorted.map((x,j)=>`<div class="familycard" style="margin:8px 0"><span class="avatarbig">${x.avatar}</span> <b>${x.name}</b><div class="big">${x.score}/10</div>${x.score===top?'👑':''}</div>`).join('')+`<div class="fact"><b>${winners.length>1?'TIE!':'WINNER:'}</b> ${winners.map(x=>x.name).join(' & ')}</div>`}}
-$('#familyDone').onclick=()=>choosePlayer(profiles().find(p=>p.name===currentPlayer)||profiles()[0]);
-if(currentPlayer&&profiles().some(p=>p.name===currentPlayer))choosePlayer(profiles().find(p=>p.name===currentPlayer));else profileScreen();
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
-</script></body></html>
+function ringsOf(g){ return g.type==='Polygon' ? g.coordinates : g.coordinates.flat(); }
+async function drawState(info){
+  const layer = $('mapLayer');
+  layer.innerHTML = `<text x="180" y="120" text-anchor="middle" fill="#5d6f86">Loading state map…</text>`;
+  const geo = await loadGeo();
+  const f = geo.features.find(x => x.properties.name === info.name);
+  layer.innerHTML = '';
+  if(!f) return;
+  const rings = ringsOf(f.geometry), pts = rings.flat();
+  const minX = Math.min(...pts.map(p=>p[0])), maxX = Math.max(...pts.map(p=>p[0]));
+  const minY = Math.min(...pts.map(p=>p[1])), maxY = Math.max(...pts.map(p=>p[1]));
+  const pad = 18, W=360, H=250;
+  const scale = Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY));
+  const ox = (W - (maxX-minX)*scale)/2, oy = (H - (maxY-minY)*scale)/2;
+  const xy = p => [ox + (p[0]-minX)*scale, H - (oy + (p[1]-minY)*scale)];
+  rings.forEach(r => {
+    const d = r.map((p,idx) => {
+      const q = xy(p);
+      return `${idx?'L':'M'}${q[0].toFixed(1)} ${q[1].toFixed(1)}`;
+    }).join(' ') + ' Z';
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d', d);
+    path.setAttribute('class', 'stateBorder');
+    layer.appendChild(path);
+  });
+  const pt = xy([info.lon, info.lat]);
+  const star = document.createElementNS('http://www.w3.org/2000/svg','text');
+  star.setAttribute('x', pt[0]);
+  star.setAttribute('y', pt[1] + 7);
+  star.setAttribute('text-anchor', 'middle');
+  star.setAttribute('font-size', '26');
+  star.setAttribute('class', 'capitalStar');
+  star.textContent = '★';
+  layer.appendChild(star);
+}
+
+
+function animalEmoji(name){
+  const n=name.toLowerCase();
+  if(n.includes('bear'))return'🐻'; if(n.includes('horse')||n.includes('mule'))return'🐴';
+  if(n.includes('deer'))return'🦌'; if(n.includes('bison'))return'🦬'; if(n.includes('whale'))return'🐋';
+  if(n.includes('seal'))return'🦭'; if(n.includes('panther'))return'🐆'; if(n.includes('bat'))return'🦇';
+  if(n.includes('fox'))return'🦊'; if(n.includes('squirrel')||n.includes('marmot'))return'🐿️';
+  if(n.includes('beaver'))return'🦫'; if(n.includes('elk')||n.includes('moose'))return'🫎';
+  if(n.includes('coyote'))return'🐺'; if(n.includes('longhorn'))return'🐂'; if(n.includes('badger'))return'🦡';
+  return'🐾';
+}
+async function drawStateInto(info, layerId){
+  const layer=$(layerId);
+  layer.innerHTML='<text x="180" y="120" text-anchor="middle" fill="#5d6f86">Loading state map…</text>';
+  const geo=await loadGeo();
+  const f=geo.features.find(x=>x.properties.name===info.name);
+  layer.innerHTML='';
+  if(!f)return;
+  const rings=ringsOf(f.geometry),pts=rings.flat(),pad=18,W=360,H=250;
+  const minX=Math.min(...pts.map(p=>p[0])),maxX=Math.max(...pts.map(p=>p[0])),minY=Math.min(...pts.map(p=>p[1])),maxY=Math.max(...pts.map(p=>p[1]));
+  const scale=Math.min((W-pad*2)/(maxX-minX),(H-pad*2)/(maxY-minY));
+  const ox=(W-(maxX-minX)*scale)/2,oy=(H-(maxY-minY)*scale)/2;
+  const xy=p=>[ox+(p[0]-minX)*scale,H-(oy+(p[1]-minY)*scale)];
+  rings.forEach(r=>{
+    const d=r.map((p,idx)=>{const q=xy(p);return `${idx?'L':'M'}${q[0].toFixed(1)} ${q[1].toFixed(1)}`}).join(' ')+' Z';
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d);path.setAttribute('class','stateBorder');layer.appendChild(path);
+  });
+  const pt=xy([info.lon,info.lat]),star=document.createElementNS('http://www.w3.org/2000/svg','text');
+  star.setAttribute('x',pt[0]);star.setAttribute('y',pt[1]+7);star.setAttribute('text-anchor','middle');star.setAttribute('font-size','26');star.setAttribute('class','capitalStar');star.textContent='★';layer.appendChild(star);
+}
+function showStateInfo(name){
+  const s=STATES.find(x=>x.name===name),z=st(data,name);
+  if(!(z.viewed||z.attempts>0))return;
+  $('infoStateName').textContent=s.name.toUpperCase();
+  $('infoNickname').textContent=s.nickname.toUpperCase();
+  $('infoStatus').textContent=z.mastered?'⭐ MASTERED':'📚 VIEWED';
+  $('infoAnimal').textContent=s.animal;$('infoAnimalArt').textContent=animalEmoji(s.animal);
+  $('infoFlower').textContent=s.flower;$('infoBird').textContent=s.bird;
+  $('infoFact').innerHTML=`🤯 <b>Weird (but true!) fact:</b> ${s.fact}`;
+  $('infoCapital').textContent=s.capital;
+  $('infoRecord').textContent=`${z.correct} correct • ${z.misses} missed`;
+  $('practiceThisState').onclick=()=>startSingleStatePractice(s);
+  drawStateInto(s,'infoMapLayer');
+  show('stateInfoView');
+}
+function startSingleStatePractice(s){
+  familyMode=false;round=[s];i=0;score=0;selected=null;newMasteredThisRound=[];
+  renderQuestion();show('quiz');
+}
+
+function startFamily(){
+  familyMode = true;
+  familyRoster = getProfiles();
+  familyScores = [];
+  familyIndex = 0;
+  round = shuffled(STATES).slice(0,10);
+  i = 0; score = 0; selected = null;
+  alert(`${familyRoster[0].avatar} ${familyRoster[0].name} goes first!`);
+  show('quiz');
+  renderQuestion();
+}
+
+function initPlayerUI(){
+  updateTop();
+  renderHome();
+  renderStatesView();
+  renderStatsView();
+  renderBadges();
+  renderFamilyView();
+}
+
+function openHome(){
+  if(!currentPlayer){ show('profiles'); return; }
+  initPlayerUI();
+  show('home');
+}
+
+function buildAvatarChoices(){
+  $('avatarRow').innerHTML = '';
+  DEFAULT_AVATARS.forEach((a,idx) => {
+    const b = document.createElement('button');
+    b.className = 'avatarBtn' + (idx===0 ? ' sel' : '');
+    b.textContent = a;
+    b.onclick = () => {
+      document.querySelectorAll('.avatarBtn').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+    };
+    $('avatarRow').appendChild(b);
+  });
+}
+
+$('addPlayer').onclick = ()=>{ buildAvatarChoices(); $('playerName').value=''; show('newPlayer'); };
+$('cancelPlayer').onclick = ()=>show('profiles');
+$('createPlayer').onclick = ()=>{
+  const name = $('playerName').value.trim();
+  if(!name) return alert('Enter a name first.');
+  const profiles = getProfiles();
+  if(profiles.some(p => p.name.toLowerCase() === name.toLowerCase())) return alert('That player already exists.');
+  const avatar = document.querySelector('.avatarBtn.sel')?.textContent || '🧢';
+  const p = {name, avatar};
+  profiles.push(p); saveProfiles(profiles); choosePlayer(p);
+};
+$('switchPlayer').onclick = ()=>show('profiles');
+$('startDaily').onclick = ()=>startRound('daily');
+$('bossBtn').onclick = ()=>startRound('boss');
+$('familyBtn').onclick = ()=>{ renderFamilyView(); show('familyView'); };
+$('startFamily').onclick = ()=>startFamily();
+$('submitBtn').onclick = ()=>submitCurrent();
+$('hintBtn').onclick = ()=>useHint();
+$('doneBtn').onclick = ()=>openHome();
+$('closeModal').onclick = ()=>$('modal').classList.remove('show');
+$('infoBack').onclick=()=>show('statesView');
+$('infoAllStates').onclick=()=>show('statesView');
+document.querySelectorAll('.goHome').forEach(b=>b.onclick=()=>openHome());
+document.querySelectorAll('.navBtn').forEach(btn => btn.onclick = ()=>{
+  const nav = btn.dataset.nav;
+  if(nav==='home') openHome();
+  else if(nav==='states') show('statesView');
+  else if(nav==='family'){ renderFamilyView(); show('familyView'); }
+  else if(nav==='stats') show('statsView');
+  else if(nav==='badges') show('badgesView');
+  else if(nav==='settings') show('profiles');
+});
+
+function boot(){
+  renderProfiles();
+  if(currentPlayer){
+    data = loadPlayerData(currentPlayer);
+    openHome();
+  } else {
+    show('profiles');
+  }
+}
+boot();
+
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>
