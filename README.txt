@@ -1,14 +1,12 @@
-LUKE'S STATE QUEST — EXPLORER EDITION 12.1
+LUKE'S STATE QUEST — EXPLORER EDITION 12.2
 
-150-IMAGE AUDIT UPDATE
-• Audited all 50 animal, 50 flower, and 50 bird lookup targets.
-• Exact biological Wikipedia titles are used, not free-text image search.
-• Entertainment/person page descriptions are rejected at runtime.
-• A new image-cache key prevents old incorrect cached photos from returning.
-• Tennessee now targets Iris × germanica.
-• Oklahoma now targets Rosa 'Oklahoma'.
-• Illinois violet targets Viola sororia.
-• Ambiguous apple, peach, orange and saguaro blossom images remain pinned to known Commons files.
+Visual audit update:
+• Removed map methodology/generalized-border captions from the visible game.
+• Removed visible photo-credit overlays. Source metadata remains available to the app.
+• Changed species photos to object-fit: contain so the full subject is favored over cropping.
+• Removed the technical About Explorer Edition block from Settings.
+• Removed species-note clutter from the state card.
+• Renamed the fact card to Mind-Blower.
+• Preserved all 12.1 learning, map, photo-target, profile, challenge, mastery, stats and badge behavior.
 
-UPLOAD
-Replace all matching files in the repository root with this package.
+Upload all matching files to the GitHub repository root.
