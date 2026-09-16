@@ -1,21 +1,25 @@
 {
+  "id": "./",
   "name": "Luke's State Quest",
-  "short_name": "State Quest",
+  "short_name": "Luke's Quest",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#edf4f8",
-  "theme_color": "#d8ecff",
+  "background_color": "#dcecf6",
+  "theme_color": "#dfedfa",
+  "description": "Ten states a day. A bigger world.",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

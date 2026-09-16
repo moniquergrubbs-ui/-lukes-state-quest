@@ -1,0 +1,913 @@
+{
+  "version": "Explorer Edition 5.1",
+  "image_slots_audited": 150,
+  "method": "Each slot uses an exact biological Wikipedia page title; ambiguous blossoms use pinned Commons files. Runtime rejects entertainment/person descriptions.",
+  "cache_reset": "sqV51PhotosAudited, so previously cached wrong images are ignored.",
+  "verified_corrections": {
+    "Tennessee flower": "Iris × germanica",
+    "Oklahoma flower": "Rosa 'Oklahoma'",
+    "Illinois flower": "Viola sororia"
+  },
+  "slots": [
+    {
+      "state": "Alabama",
+      "kind": "animal",
+      "display_name": "Black bear",
+      "target": "American black bear"
+    },
+    {
+      "state": "Alabama",
+      "kind": "flower",
+      "display_name": "Camellia",
+      "target": "Camellia japonica"
+    },
+    {
+      "state": "Alabama",
+      "kind": "bird",
+      "display_name": "Yellowhammer",
+      "target": "Northern flicker"
+    },
+    {
+      "state": "Alaska",
+      "kind": "animal",
+      "display_name": "Moose",
+      "target": "Moose"
+    },
+    {
+      "state": "Alaska",
+      "kind": "flower",
+      "display_name": "Forget-me-not",
+      "target": "Myosotis alpestris"
+    },
+    {
+      "state": "Alaska",
+      "kind": "bird",
+      "display_name": "Willow ptarmigan",
+      "target": "Willow ptarmigan"
+    },
+    {
+      "state": "Arizona",
+      "kind": "animal",
+      "display_name": "Ringtail",
+      "target": "Ringtail"
+    },
+    {
+      "state": "Arizona",
+      "kind": "flower",
+      "display_name": "Saguaro cactus blossom",
+      "target": "Saguaro"
+    },
+    {
+      "state": "Arizona",
+      "kind": "bird",
+      "display_name": "Cactus wren",
+      "target": "Cactus wren"
+    },
+    {
+      "state": "Arkansas",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Arkansas",
+      "kind": "flower",
+      "display_name": "Apple blossom",
+      "target": "Apple blossom"
+    },
+    {
+      "state": "Arkansas",
+      "kind": "bird",
+      "display_name": "Northern mockingbird",
+      "target": "Northern mockingbird"
+    },
+    {
+      "state": "California",
+      "kind": "animal",
+      "display_name": "California grizzly bear",
+      "target": "Grizzly bear"
+    },
+    {
+      "state": "California",
+      "kind": "flower",
+      "display_name": "California poppy",
+      "target": "Eschscholzia californica"
+    },
+    {
+      "state": "California",
+      "kind": "bird",
+      "display_name": "California quail",
+      "target": "California quail"
+    },
+    {
+      "state": "Colorado",
+      "kind": "animal",
+      "display_name": "Rocky Mountain bighorn sheep",
+      "target": "Bighorn sheep"
+    },
+    {
+      "state": "Colorado",
+      "kind": "flower",
+      "display_name": "Rocky Mountain columbine",
+      "target": "Aquilegia coerulea"
+    },
+    {
+      "state": "Colorado",
+      "kind": "bird",
+      "display_name": "Lark bunting",
+      "target": "Lark bunting"
+    },
+    {
+      "state": "Connecticut",
+      "kind": "animal",
+      "display_name": "Sperm whale",
+      "target": "Sperm whale"
+    },
+    {
+      "state": "Connecticut",
+      "kind": "flower",
+      "display_name": "Mountain laurel",
+      "target": "Kalmia latifolia"
+    },
+    {
+      "state": "Connecticut",
+      "kind": "bird",
+      "display_name": "American robin",
+      "target": "American robin"
+    },
+    {
+      "state": "Delaware",
+      "kind": "animal",
+      "display_name": "Gray fox",
+      "target": "Gray fox"
+    },
+    {
+      "state": "Delaware",
+      "kind": "flower",
+      "display_name": "Peach blossom",
+      "target": "Peach blossom"
+    },
+    {
+      "state": "Delaware",
+      "kind": "bird",
+      "display_name": "Delaware Blue Hen",
+      "target": "Delaware Blue Hen"
+    },
+    {
+      "state": "Florida",
+      "kind": "animal",
+      "display_name": "Florida panther",
+      "target": "Florida panther"
+    },
+    {
+      "state": "Florida",
+      "kind": "flower",
+      "display_name": "Orange blossom",
+      "target": "Orange blossom"
+    },
+    {
+      "state": "Florida",
+      "kind": "bird",
+      "display_name": "Northern mockingbird",
+      "target": "Northern mockingbird"
+    },
+    {
+      "state": "Georgia",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Georgia",
+      "kind": "flower",
+      "display_name": "Cherokee rose",
+      "target": "Rosa laevigata"
+    },
+    {
+      "state": "Georgia",
+      "kind": "bird",
+      "display_name": "Brown thrasher",
+      "target": "Brown thrasher"
+    },
+    {
+      "state": "Hawaii",
+      "kind": "animal",
+      "display_name": "Hawaiian hoary bat",
+      "target": "Hawaiian hoary bat"
+    },
+    {
+      "state": "Hawaii",
+      "kind": "flower",
+      "display_name": "Yellow hibiscus",
+      "target": "Hibiscus brackenridgei"
+    },
+    {
+      "state": "Hawaii",
+      "kind": "bird",
+      "display_name": "Nēnē",
+      "target": "Nene (bird)"
+    },
+    {
+      "state": "Idaho",
+      "kind": "animal",
+      "display_name": "Appaloosa horse",
+      "target": "Appaloosa horse"
+    },
+    {
+      "state": "Idaho",
+      "kind": "flower",
+      "display_name": "Syringa",
+      "target": "Philadelphus lewisii"
+    },
+    {
+      "state": "Idaho",
+      "kind": "bird",
+      "display_name": "Mountain bluebird",
+      "target": "Mountain bluebird"
+    },
+    {
+      "state": "Illinois",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Illinois",
+      "kind": "flower",
+      "display_name": "Violet",
+      "target": "Viola sororia"
+    },
+    {
+      "state": "Illinois",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Indiana",
+      "kind": "animal",
+      "display_name": "Say's firefly",
+      "target": "Pyractomena angulata"
+    },
+    {
+      "state": "Indiana",
+      "kind": "flower",
+      "display_name": "Peony",
+      "target": "Paeonia lactiflora"
+    },
+    {
+      "state": "Indiana",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Iowa",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Iowa",
+      "kind": "flower",
+      "display_name": "Wild rose",
+      "target": "Rosa arkansana"
+    },
+    {
+      "state": "Iowa",
+      "kind": "bird",
+      "display_name": "Eastern goldfinch",
+      "target": "American goldfinch"
+    },
+    {
+      "state": "Kansas",
+      "kind": "animal",
+      "display_name": "American bison",
+      "target": "American bison"
+    },
+    {
+      "state": "Kansas",
+      "kind": "flower",
+      "display_name": "Wild sunflower",
+      "target": "Helianthus annuus"
+    },
+    {
+      "state": "Kansas",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    },
+    {
+      "state": "Kentucky",
+      "kind": "animal",
+      "display_name": "Gray squirrel",
+      "target": "Eastern gray squirrel"
+    },
+    {
+      "state": "Kentucky",
+      "kind": "flower",
+      "display_name": "Goldenrod",
+      "target": "Solidago"
+    },
+    {
+      "state": "Kentucky",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Louisiana",
+      "kind": "animal",
+      "display_name": "Louisiana black bear",
+      "target": "Louisiana black bear"
+    },
+    {
+      "state": "Louisiana",
+      "kind": "flower",
+      "display_name": "Magnolia",
+      "target": "Magnolia grandiflora"
+    },
+    {
+      "state": "Louisiana",
+      "kind": "bird",
+      "display_name": "Brown pelican",
+      "target": "Brown pelican"
+    },
+    {
+      "state": "Maine",
+      "kind": "animal",
+      "display_name": "Moose",
+      "target": "Moose"
+    },
+    {
+      "state": "Maine",
+      "kind": "flower",
+      "display_name": "White pine cone and tassel",
+      "target": "Pinus strobus"
+    },
+    {
+      "state": "Maine",
+      "kind": "bird",
+      "display_name": "Black-capped chickadee",
+      "target": "Black-capped chickadee"
+    },
+    {
+      "state": "Maryland",
+      "kind": "animal",
+      "display_name": "Chesapeake Bay retriever",
+      "target": "Chesapeake Bay retriever"
+    },
+    {
+      "state": "Maryland",
+      "kind": "flower",
+      "display_name": "Black-eyed Susan",
+      "target": "Rudbeckia hirta"
+    },
+    {
+      "state": "Maryland",
+      "kind": "bird",
+      "display_name": "Baltimore oriole",
+      "target": "Baltimore oriole"
+    },
+    {
+      "state": "Massachusetts",
+      "kind": "animal",
+      "display_name": "Right whale",
+      "target": "North Atlantic right whale"
+    },
+    {
+      "state": "Massachusetts",
+      "kind": "flower",
+      "display_name": "Mayflower",
+      "target": "Epigaea repens"
+    },
+    {
+      "state": "Massachusetts",
+      "kind": "bird",
+      "display_name": "Black-capped chickadee",
+      "target": "Black-capped chickadee"
+    },
+    {
+      "state": "Michigan",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Michigan",
+      "kind": "flower",
+      "display_name": "Apple blossom",
+      "target": "Apple blossom"
+    },
+    {
+      "state": "Michigan",
+      "kind": "bird",
+      "display_name": "American robin",
+      "target": "American robin"
+    },
+    {
+      "state": "Minnesota",
+      "kind": "animal",
+      "display_name": "Rusty patched bumble bee",
+      "target": "Bombus affinis"
+    },
+    {
+      "state": "Minnesota",
+      "kind": "flower",
+      "display_name": "Pink and white lady's slipper",
+      "target": "Cypripedium reginae"
+    },
+    {
+      "state": "Minnesota",
+      "kind": "bird",
+      "display_name": "Common loon",
+      "target": "Common loon"
+    },
+    {
+      "state": "Mississippi",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Mississippi",
+      "kind": "flower",
+      "display_name": "Magnolia",
+      "target": "Magnolia grandiflora"
+    },
+    {
+      "state": "Mississippi",
+      "kind": "bird",
+      "display_name": "Northern mockingbird",
+      "target": "Northern mockingbird"
+    },
+    {
+      "state": "Missouri",
+      "kind": "animal",
+      "display_name": "Missouri mule",
+      "target": "Mule"
+    },
+    {
+      "state": "Missouri",
+      "kind": "flower",
+      "display_name": "Hawthorn blossom",
+      "target": "Crataegus"
+    },
+    {
+      "state": "Missouri",
+      "kind": "bird",
+      "display_name": "Eastern bluebird",
+      "target": "Eastern bluebird"
+    },
+    {
+      "state": "Montana",
+      "kind": "animal",
+      "display_name": "Grizzly bear",
+      "target": "Grizzly bear"
+    },
+    {
+      "state": "Montana",
+      "kind": "flower",
+      "display_name": "Bitterroot",
+      "target": "Lewisia rediviva"
+    },
+    {
+      "state": "Montana",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    },
+    {
+      "state": "Nebraska",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Nebraska",
+      "kind": "flower",
+      "display_name": "Goldenrod",
+      "target": "Solidago"
+    },
+    {
+      "state": "Nebraska",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    },
+    {
+      "state": "Nevada",
+      "kind": "animal",
+      "display_name": "Desert bighorn sheep",
+      "target": "Desert bighorn sheep"
+    },
+    {
+      "state": "Nevada",
+      "kind": "flower",
+      "display_name": "Sagebrush",
+      "target": "Artemisia tridentata"
+    },
+    {
+      "state": "Nevada",
+      "kind": "bird",
+      "display_name": "Mountain bluebird",
+      "target": "Mountain bluebird"
+    },
+    {
+      "state": "New Hampshire",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "New Hampshire",
+      "kind": "flower",
+      "display_name": "Purple lilac",
+      "target": "Syringa vulgaris"
+    },
+    {
+      "state": "New Hampshire",
+      "kind": "bird",
+      "display_name": "Purple finch",
+      "target": "Purple finch"
+    },
+    {
+      "state": "New Jersey",
+      "kind": "animal",
+      "display_name": "Horse",
+      "target": "Horse"
+    },
+    {
+      "state": "New Jersey",
+      "kind": "flower",
+      "display_name": "Violet",
+      "target": "Viola sororia"
+    },
+    {
+      "state": "New Jersey",
+      "kind": "bird",
+      "display_name": "Eastern goldfinch",
+      "target": "American goldfinch"
+    },
+    {
+      "state": "New Mexico",
+      "kind": "animal",
+      "display_name": "American black bear",
+      "target": "American black bear"
+    },
+    {
+      "state": "New Mexico",
+      "kind": "flower",
+      "display_name": "Yucca flower",
+      "target": "Yucca"
+    },
+    {
+      "state": "New Mexico",
+      "kind": "bird",
+      "display_name": "Greater roadrunner",
+      "target": "Greater roadrunner"
+    },
+    {
+      "state": "New York",
+      "kind": "animal",
+      "display_name": "Beaver",
+      "target": "Beaver"
+    },
+    {
+      "state": "New York",
+      "kind": "flower",
+      "display_name": "Rose",
+      "target": "Rosa"
+    },
+    {
+      "state": "New York",
+      "kind": "bird",
+      "display_name": "Eastern bluebird",
+      "target": "Eastern bluebird"
+    },
+    {
+      "state": "North Carolina",
+      "kind": "animal",
+      "display_name": "Gray squirrel",
+      "target": "Eastern gray squirrel"
+    },
+    {
+      "state": "North Carolina",
+      "kind": "flower",
+      "display_name": "Flowering dogwood",
+      "target": "Cornus florida"
+    },
+    {
+      "state": "North Carolina",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "North Dakota",
+      "kind": "animal",
+      "display_name": "Nokota horse",
+      "target": "Nokota horse"
+    },
+    {
+      "state": "North Dakota",
+      "kind": "flower",
+      "display_name": "Wild prairie rose",
+      "target": "Rosa arkansana"
+    },
+    {
+      "state": "North Dakota",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    },
+    {
+      "state": "Ohio",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Ohio",
+      "kind": "flower",
+      "display_name": "Scarlet carnation",
+      "target": "Dianthus caryophyllus"
+    },
+    {
+      "state": "Ohio",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Oklahoma",
+      "kind": "animal",
+      "display_name": "American bison",
+      "target": "American bison"
+    },
+    {
+      "state": "Oklahoma",
+      "kind": "flower",
+      "display_name": "Oklahoma rose",
+      "target": "Rosa 'Oklahoma'"
+    },
+    {
+      "state": "Oklahoma",
+      "kind": "bird",
+      "display_name": "Scissor-tailed flycatcher",
+      "target": "Scissor-tailed flycatcher"
+    },
+    {
+      "state": "Oregon",
+      "kind": "animal",
+      "display_name": "American beaver",
+      "target": "North American beaver"
+    },
+    {
+      "state": "Oregon",
+      "kind": "flower",
+      "display_name": "Oregon grape",
+      "target": "Mahonia aquifolium"
+    },
+    {
+      "state": "Oregon",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    },
+    {
+      "state": "Pennsylvania",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "Pennsylvania",
+      "kind": "flower",
+      "display_name": "Mountain laurel",
+      "target": "Kalmia latifolia"
+    },
+    {
+      "state": "Pennsylvania",
+      "kind": "bird",
+      "display_name": "Ruffed grouse",
+      "target": "Ruffed grouse"
+    },
+    {
+      "state": "Rhode Island",
+      "kind": "animal",
+      "display_name": "Harbor seal",
+      "target": "Harbor seal"
+    },
+    {
+      "state": "Rhode Island",
+      "kind": "flower",
+      "display_name": "Violet",
+      "target": "Viola sororia"
+    },
+    {
+      "state": "Rhode Island",
+      "kind": "bird",
+      "display_name": "Rhode Island Red",
+      "target": "Rhode Island Red"
+    },
+    {
+      "state": "South Carolina",
+      "kind": "animal",
+      "display_name": "White-tailed deer",
+      "target": "White-tailed deer"
+    },
+    {
+      "state": "South Carolina",
+      "kind": "flower",
+      "display_name": "Yellow jessamine",
+      "target": "Gelsemium sempervirens"
+    },
+    {
+      "state": "South Carolina",
+      "kind": "bird",
+      "display_name": "Carolina wren",
+      "target": "Carolina wren"
+    },
+    {
+      "state": "South Dakota",
+      "kind": "animal",
+      "display_name": "Coyote",
+      "target": "Coyote"
+    },
+    {
+      "state": "South Dakota",
+      "kind": "flower",
+      "display_name": "American pasque flower",
+      "target": "Pulsatilla patens"
+    },
+    {
+      "state": "South Dakota",
+      "kind": "bird",
+      "display_name": "Ring-necked pheasant",
+      "target": "Ring-necked pheasant"
+    },
+    {
+      "state": "Tennessee",
+      "kind": "animal",
+      "display_name": "Raccoon",
+      "target": "Raccoon"
+    },
+    {
+      "state": "Tennessee",
+      "kind": "flower",
+      "display_name": "Iris",
+      "target": "Iris × germanica"
+    },
+    {
+      "state": "Tennessee",
+      "kind": "bird",
+      "display_name": "Northern mockingbird",
+      "target": "Northern mockingbird"
+    },
+    {
+      "state": "Texas",
+      "kind": "animal",
+      "display_name": "Texas longhorn",
+      "target": "Texas longhorn"
+    },
+    {
+      "state": "Texas",
+      "kind": "flower",
+      "display_name": "Bluebonnet",
+      "target": "Lupinus texensis"
+    },
+    {
+      "state": "Texas",
+      "kind": "bird",
+      "display_name": "Northern mockingbird",
+      "target": "Northern mockingbird"
+    },
+    {
+      "state": "Utah",
+      "kind": "animal",
+      "display_name": "Rocky Mountain elk",
+      "target": "Elk"
+    },
+    {
+      "state": "Utah",
+      "kind": "flower",
+      "display_name": "Sego lily",
+      "target": "Calochortus nuttallii"
+    },
+    {
+      "state": "Utah",
+      "kind": "bird",
+      "display_name": "California gull",
+      "target": "California gull"
+    },
+    {
+      "state": "Vermont",
+      "kind": "animal",
+      "display_name": "Morgan horse",
+      "target": "Morgan horse"
+    },
+    {
+      "state": "Vermont",
+      "kind": "flower",
+      "display_name": "Red clover",
+      "target": "Trifolium pratense"
+    },
+    {
+      "state": "Vermont",
+      "kind": "bird",
+      "display_name": "Hermit thrush",
+      "target": "Hermit thrush"
+    },
+    {
+      "state": "Virginia",
+      "kind": "animal",
+      "display_name": "Virginia big-eared bat",
+      "target": "Townsend's big-eared bat"
+    },
+    {
+      "state": "Virginia",
+      "kind": "flower",
+      "display_name": "American dogwood",
+      "target": "Cornus florida"
+    },
+    {
+      "state": "Virginia",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Washington",
+      "kind": "animal",
+      "display_name": "Olympic marmot",
+      "target": "Olympic marmot"
+    },
+    {
+      "state": "Washington",
+      "kind": "flower",
+      "display_name": "Coast rhododendron",
+      "target": "Rhododendron macrophyllum"
+    },
+    {
+      "state": "Washington",
+      "kind": "bird",
+      "display_name": "Willow goldfinch",
+      "target": "American goldfinch"
+    },
+    {
+      "state": "West Virginia",
+      "kind": "animal",
+      "display_name": "Black bear",
+      "target": "American black bear"
+    },
+    {
+      "state": "West Virginia",
+      "kind": "flower",
+      "display_name": "Rhododendron",
+      "target": "Rhododendron maximum"
+    },
+    {
+      "state": "West Virginia",
+      "kind": "bird",
+      "display_name": "Northern cardinal",
+      "target": "Northern cardinal"
+    },
+    {
+      "state": "Wisconsin",
+      "kind": "animal",
+      "display_name": "Badger",
+      "target": "American badger"
+    },
+    {
+      "state": "Wisconsin",
+      "kind": "flower",
+      "display_name": "Wood violet",
+      "target": "Viola sororia"
+    },
+    {
+      "state": "Wisconsin",
+      "kind": "bird",
+      "display_name": "American robin",
+      "target": "American robin"
+    },
+    {
+      "state": "Wyoming",
+      "kind": "animal",
+      "display_name": "American bison",
+      "target": "American bison"
+    },
+    {
+      "state": "Wyoming",
+      "kind": "flower",
+      "display_name": "Indian paintbrush",
+      "target": "Castilleja linariifolia"
+    },
+    {
+      "state": "Wyoming",
+      "kind": "bird",
+      "display_name": "Western meadowlark",
+      "target": "Western meadowlark"
+    }
+  ]
+}

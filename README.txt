@@ -1,13 +1,14 @@
-LUKE'S STATE QUEST V8 PHOTO EDITION
+LUKE'S STATE QUEST — EXPLORER EDITION 12.1
 
-Upload/replace in GitHub Pages:
-1. index.html
-2. sw.js
-3. manifest.webmanifest
+150-IMAGE AUDIT UPDATE
+• Audited all 50 animal, 50 flower, and 50 bird lookup targets.
+• Exact biological Wikipedia titles are used, not free-text image search.
+• Entertainment/person page descriptions are rejected at runtime.
+• A new image-cache key prevents old incorrect cached photos from returning.
+• Tennessee now targets Iris × germanica.
+• Oklahoma now targets Rosa 'Oklahoma'.
+• Illinois violet targets Viola sororia.
+• Ambiguous apple, peach, orange and saguaro blossom images remain pinned to known Commons files.
 
-The app now loads real representative animal, flower, and bird photography from Wikimedia/Wikipedia and caches the selected photo URL on the device. If a photo cannot load, a matching emoji fallback appears instead.
-
-Viewed-state feature:
-After a player sees a state in a quiz, it unlocks in All States. Tapping it reopens the full visual state card with the state outline, capital and star location, animal/bird/flower photos, weird fact, practice record, and Practice This State.
-
-Quiz maps NEVER label the capital before the answer is submitted.
+UPLOAD
+Replace all matching files in the repository root with this package.
