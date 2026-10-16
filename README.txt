@@ -1,11 +1,17 @@
-LUKE'S STATE QUEST V13.4 — SCHOOL MODE ROUTING FIX
+LUKE'S STATE QUEST V13.5 | GEOGRAPHY #2 CONFIRMED
 
-Fixed dedicated practice routing:
-- State Shapes now stays in State Shapes for the entire selected section.
-- Map Test now stays in Map Test for the entire selected section.
-- Spell Capitals stays capitals-only.
-- Spell States stays states-only.
-- Abbreviations stays abbreviations-only.
-- Mixed School Test continues to intentionally rotate spelling, abbreviations, shapes, and map questions.
+Section 2: Central States, quiz October 29, 2026.
+Montana MT Helena
+Wyoming WY Cheyenne
+Colorado CO Denver
+New Mexico NM Santa Fe
+Texas TX Austin
+North Dakota ND Bismarck
+South Dakota SD Pierre
+Nebraska NE Lincoln
+Kansas KS Topeka
+Oklahoma OK Oklahoma City
 
-Built from V13.3 Verified. Existing profile/progress storage is unchanged.
+Section 1 remains confirmed and unchanged. Sections 3-5 are provisional. All 50 states appear in exactly one section. No storage keys, mastery logic, or quiz routing modified.
+
+Upload school-study.js and sw.js to the existing GitHub Pages repository root. Export a backup in Settings first.
