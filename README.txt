@@ -1,17 +1,22 @@
-LUKE'S STATE QUEST V13.5 | GEOGRAPHY #2 CONFIRMED
+LUKE'S STATE QUEST V13.6 | GEOGRAPHY #3 CONFIRMED
 
-Section 2: Central States, quiz October 29, 2026.
-Montana MT Helena
-Wyoming WY Cheyenne
-Colorado CO Denver
-New Mexico NM Santa Fe
-Texas TX Austin
-North Dakota ND Bismarck
-South Dakota SD Pierre
-Nebraska NE Lincoln
-Kansas KS Topeka
-Oklahoma OK Oklahoma City
+Section 3: Middle Western States, confirmed from supplied teacher worksheet.
+The quiz-date line was blank; no quiz date is assumed.
+Missouri MO Jefferson City
+Minnesota MN St. Paul
+Michigan MI Lansing
+Indiana IN Indianapolis
+Illinois IL Springfield
+Kentucky KY Frankfort
+Ohio OH Columbus
+Wisconsin WI Madison
+Iowa IA Des Moines
+West Virginia WV Charleston
 
-Section 1 remains confirmed and unchanged. Sections 3-5 are provisional. All 50 states appear in exactly one section. No storage keys, mastery logic, or quiz routing modified.
-
-Upload school-study.js and sw.js to the existing GitHub Pages repository root. Export a backup in Settings first.
+St. Paul, St Paul and Saint Paul are accepted for Minnesota. The on-screen
+keyboard can enter ST PAUL without punctuation.
+Sections 1 and 2 remain unchanged. Sections 4 and 5 remain provisional.
+States displaced from provisional Section 3 were moved to provisional Section 4.
+All 50 states still appear in exactly one section.
+No storage keys, player records, mastery or rewards logic changed.
+Service-worker cache version updated so connected clients can fetch the update.
