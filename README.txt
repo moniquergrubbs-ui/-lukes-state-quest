@@ -1,4 +1,4 @@
-LUKE'S STATE QUEST V13.6 | GEOGRAPHY #3 CONFIRMED
+LUKE'S STATE QUEST V13.7 | SECTIONS 1 + 2 COMBO & GEOGRAPHY #3 CONFIRMED
 
 Section 3: Middle Western States, confirmed from supplied teacher worksheet.
 The quiz-date line was blank; no quiz date is assumed.
@@ -20,3 +20,8 @@ States displaced from provisional Section 3 were moved to provisional Section 4.
 All 50 states still appear in exactly one section.
 No storage keys, player records, mastery or rewards logic changed.
 Service-worker cache version updated so connected clients can fetch the update.
+
+School Study now includes Sections 1 + 2 Combo Practice (19 states).
+It supports learning, state/capital spelling, abbreviations, shapes, map and
+mixed School Test with the same player progress and reward rules.
+Combo history uses section ID "1+2"; individual numeric section IDs are unchanged.
